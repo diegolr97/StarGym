@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9af64070-afc2-4d03-805e-252d8011b362">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     clase.`nombre` AS clase_nombre,
+     clase.`precio` AS clase_precio,
+     cliente.`dni` AS cliente_dni,
+     monitores.`nombre` AS monitores_nombre,
+     monitores.`apellidos` AS monitores_apellidos
+FROM
+     `cliente` cliente INNER JOIN `matricula` matricula ON cliente.`dni` = matricula.`idCliente`
+     INNER JOIN `tarifa` tarifa ON matricula.`idMatricula` = tarifa.`idMatricula`
+     INNER JOIN `clase` clase ON tarifa.`idClase` = clase.`idClase`
+     INNER JOIN `monitores` monitores ON clase.`idMonitor` = monitores.`idMonitor`
+WHERE cliente.`dni` = $P{parameter1}]]>
+	</queryString>
+	<field name="clase_nombre" class="java.lang.String"/>
+	<field name="clase_precio" class="java.lang.Double"/>
+	<field name="cliente_dni" class="java.lang.String"/>
+	<field name="monitores_nombre" class="java.lang.String"/>
+	<field name="monitores_apellidos" class="java.lang.String"/>
+	<variable name="totalMatricula" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{clase_precio}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="16" width="314" height="20" uuid="6a3dc13a-6381-4609-b465-88f8797f2130"/>
+				<text><![CDATA[Star GYM]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="04d90e01-ad0b-4d65-ab70-b428a4bc58f1"/>
+				<text><![CDATA[clase_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="b6dbc62c-1a0c-4582-8358-ac4b64b64377"/>
+				<text><![CDATA[clase_precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="7b5853ac-3f93-46db-9bdb-0a8659e8f8ca"/>
+				<text><![CDATA[monitores_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="6879aa03-8771-495d-b715-118fb618bb1c"/>
+				<text><![CDATA[monitores_apellidos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="0e8f63ca-5619-49bf-b912-48560ceea74a"/>
+				<textFieldExpression><![CDATA[$F{clase_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="4f1e92af-ae74-49bb-bf07-2f6763238585"/>
+				<textFieldExpression><![CDATA[$F{clase_precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="fd249dfb-5b9b-4a3d-bdf3-c730f25dd8c6"/>
+				<textFieldExpression><![CDATA[$F{monitores_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="3a240fde-fb97-45bf-81bd-9798067b3676"/>
+				<textFieldExpression><![CDATA[$F{monitores_apellidos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="454" y="22" width="100" height="20" uuid="a9b708ce-1473-4af7-8898-f7eeb2f726a8"/>
+				<textFieldExpression><![CDATA[$V{totalMatricula}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="415" y="22" width="39" height="20" uuid="eeb8b988-ee52-4cdd-8b09-d660a1f442f5"/>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
