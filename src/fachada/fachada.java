@@ -123,7 +123,12 @@ public class fachada {
     public DefaultListModel listTodasClases(){
         return clase.listTodasClases();
     }
-     
+    
+    public float precioMatricula(DefaultListModel mt){
+        return clase.precioMatricula(mt);
+    }
+
+    
      //---------maquina--------------//
      
      private interfazMaquina maquina = new modeloMaquina();

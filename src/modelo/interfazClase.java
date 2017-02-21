@@ -28,4 +28,7 @@ public interface interfazClase {
     public boolean modificarClase(int idClase, String nombre, double precio, String idMonitor);
     
     public DefaultListModel listTodasClases();
+    
+    public float precioMatricula(DefaultListModel mt);
+    
 }

@@ -9,6 +9,8 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -194,7 +196,47 @@ public class modeloClase extends conexion implements interfazClase {
             pstm.close();
           } catch (SQLException ex) {
             Logger.getLogger(modeloCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            }
        return model;
     }
+    
+    //Metodo para calcular el precio de la matricula al añadir una clase
+    @Override
+    public float precioMatricula(DefaultListModel mt){
+        
+        float precio = 0;
+        float total = 0;
+        
+        for(int i = 0; i < mt.size(); i++){
+            
+            
+            String id = (String) mt.getElementAt(i);
+            
+            List<String> l = Arrays.asList(id.split(" "));
+        
+            id = l.get(0);
+        
+            try {
+                PreparedStatement pstm = this.getConexion().prepareStatement( "select precio from clase where idClase = '"  + id + " ' ");
+                ResultSet res = pstm.executeQuery();
+
+                 while (res.next()) //go through each row that your query returns
+                 {
+                    precio = res.getFloat("precio"); 
+                      
+                 }
+
+                 res.close();
+                 pstm.close();
+          } catch (SQLException ex) {
+            Logger.getLogger(modeloCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                       
+            total = total + precio;
+            
+        }
+        
+        return total;
+    }
+    
 }
