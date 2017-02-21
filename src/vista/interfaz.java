@@ -19,8 +19,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -2960,27 +2962,27 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private void btnLoguinEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoguinEntrarActionPerformed
         //Boton loguin entrar        
 
-//        if(f.iniciarSesion(this.txtLoguinUsuario.getText(), this.txtLoguinContraseña.getText())==1){
-//            panelLoguin.setVisible(false);
-//            avatarAdmin.setVisible(true);
-//            panelAdmin.setVisible(true);
-//            panelAdminAdmin.setVisible(false);
-//            
-//            panelAdminCliente.setVisible(false);
-//            panelAdminMaquina.setVisible(false);
-//            panelAdminTrabajador.setVisible(false);
-//            
-//            avatarTrab.setVisible(false);
-//            panelTrab.setVisible(false);
-//            panelTrabPerfil.setVisible(false);
-//            panelTrabCliente.setVisible(false);
-//            panelTrabMatricula.setVisible(false);
-//            panelTrabCobro.setVisible(false);
-//            
-//            //Colocar en el label superior izquierdo el identificador
-//            lblAdministrador.setText(txtLoguinUsuario.getText());
-//            
-//        }else if(f.iniciarSesion(this.txtLoguinUsuario.getText(), this.txtLoguinContraseña.getText())==0){
+        if(f.iniciarSesion(this.txtLoguinUsuario.getText(), this.txtLoguinContraseña.getText())==1){
+            panelLoguin.setVisible(false);
+            avatarAdmin.setVisible(true);
+            panelAdmin.setVisible(true);
+            panelAdminAdmin.setVisible(false);
+            
+            panelAdminCliente.setVisible(false);
+            panelAdminMaquina.setVisible(false);
+            panelAdminTrabajador.setVisible(false);
+            
+            avatarTrab.setVisible(false);
+            panelTrab.setVisible(false);
+            panelTrabPerfil.setVisible(false);
+            panelTrabCliente.setVisible(false);
+            panelTrabMatricula.setVisible(false);
+            panelTrabCobro.setVisible(false);
+            
+            //Colocar en el label superior izquierdo el identificador
+            lblAdministrador.setText(txtLoguinUsuario.getText());
+            
+        }else if(f.iniciarSesion(this.txtLoguinUsuario.getText(), this.txtLoguinContraseña.getText())==0){
             panelLoguin.setVisible(false);
             avatarTrab.setVisible(true);
             panelTrab.setVisible(true);
@@ -2999,9 +3001,9 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
             
             //Colocar en el label superior izquierdo el identificador
             lblTrabajador.setText(txtLoguinUsuario.getText());  
-//        }else{
-//           JOptionPane.showMessageDialog(null, "Datos incorrectos");
-//        }
+        }else{
+           JOptionPane.showMessageDialog(null, "Datos incorrectos");
+        }
     }//GEN-LAST:event_btnLoguinEntrarActionPerformed
 
     private void btnAdminIpodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminIpodActionPerformed
@@ -3414,11 +3416,14 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
     private void buttonAction9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction9ActionPerformed
 try{
+        
         conexion cn = new conexion();
         String dir;
-        dir = "src/reporte/report1.jrxml";
+        dir = "src/reporte/matricula.jrxml";
+        Map parametro = new HashMap();
+        parametro.put("parameter1", txtAdminClienteDni.getText());
         JasperReport reporteJasper = JasperCompileManager.compileReport(dir);
-        JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, null, cn.getConexion());
+        JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, parametro, cn.getConexion());
         JasperViewer visor = new JasperViewer(mostrarReporte, false);
         visor.setVisible(true);
        
