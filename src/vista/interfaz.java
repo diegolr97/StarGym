@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,6 +34,7 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import modelo.comprobacion;
 import modelo.conexion;
+import modelo.reloj;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -48,17 +50,19 @@ import org.edisoncor.gui.util.Avatar;
  *
  * @author Manuel
  */
-public class interfaz extends javax.swing.JFrame implements DocumentListener{
+public class interfaz extends javax.swing.JFrame implements DocumentListener, Runnable{
     
     fachada f = new fachada();
     comprobacion c = new comprobacion();
-    
     //ComboBox tabla Clases
     JComboBox jcb  = new JComboBox(f.comboMonitores());
-    
-    
+    //Reloj
+    Thread h1;
+    String hora,minutos,segundos,ampm;
+    Calendar calendario;
     
     String dniCliente;
+    
     public interfaz() {
         
         initComponents();
@@ -82,7 +86,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         
         this.txtnombre.getDocument().addDocumentListener(this);
         
-      
+        h1 = new Thread(this);
+        h1.start();
+        setTitle("Tu Tutorial"); //Titulo del frame
+        setLocationRelativeTo(null); //Para centrar la ventana
+        setVisible(true);
         
     }
     
@@ -114,6 +122,52 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
             return ImageIO.read(interfaz.class.getResource(filename));
         } catch (Exception e) {
             return null;
+        }
+    }
+    
+    public void calcula () {
+
+        calendario = new GregorianCalendar();
+        java.util.Date fechaHoraActual = new java.util.Date();
+
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM)==Calendar.AM?"AM":"PM";
+        if(ampm.equals("PM")){
+        int h = calendario.get(Calendar.HOUR_OF_DAY)-12;
+        hora = h>9?""+h:"0"+h;
+        }else{
+        hora = calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY); }
+        minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
+    }
+    
+    @Override
+    public void insertUpdate(DocumentEvent e) {
+        String nombre= this.txtnombre.getText();
+        this.tablaClientes.setModel(f.listarClientesLetra(nombre));
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent e) {
+        String nombre = this.txtnombre.getText();
+        this.tablaClientes.setModel(f.listarClientesLetra(nombre));
+    }
+
+    @Override
+    public void changedUpdate(DocumentEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void run() {
+        Thread ct = Thread.currentThread();
+        while(ct == h1) {
+        calcula();
+        lblHoraAdmin.setText(hora + ":" + minutos + ":" + segundos + " "+ampm);
+        lblHoraTrabajador.setText(hora + ":" + minutos + ":" + segundos + " "+ampm);
+        try {
+        Thread.sleep(1000);
+        }catch(InterruptedException e) {}
         }
     }
     
@@ -297,6 +351,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         btnAdminRetroceso = new org.edisoncor.gui.button.ButtonCircle();
         labelMetric3 = new org.edisoncor.gui.label.LabelMetric();
         lblAdministrador = new org.edisoncor.gui.label.LabelMetric();
+        lblHoraAdmin = new javax.swing.JLabel();
         panelTrab = new javax.swing.JPanel();
         avatarTrab = new org.edisoncor.gui.panel.PanelAvatarChooser();
         btnTrabIpod = new org.edisoncor.gui.button.ButtonIpod();
@@ -415,6 +470,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         btnTrabajadorRetroceso = new org.edisoncor.gui.button.ButtonCircle();
         labelMetric87 = new org.edisoncor.gui.label.LabelMetric();
         lblTrabajador = new org.edisoncor.gui.label.LabelMetric();
+        lblHoraTrabajador = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -731,6 +787,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
 
         panelAdmin.setBackground(new java.awt.Color(0, 0, 0));
         panelAdmin.setPreferredSize(new java.awt.Dimension(1140, 628));
+        panelAdmin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         avatarAdmin.setColorPrimario(new java.awt.Color(0, 0, 0));
         avatarAdmin.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -746,6 +803,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
             }
         });
         avatarAdmin.add(btnAdminIpod, new java.awt.GridBagConstraints());
+
+        panelAdmin.add(avatarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 1140, 596));
 
         panelAdminAdmin.setBackground(new java.awt.Color(0, 0, 0));
         panelAdminAdmin.setPreferredSize(new java.awt.Dimension(1140, 628));
@@ -991,6 +1050,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         labelTask1.setText("Administradores");
         labelTask1.setDescription(" ");
         panelAdminAdmin.add(labelTask1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+
+        panelAdmin.add(panelAdminAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, -1, -1));
 
         panelAdminCliente.setBackground(new java.awt.Color(0, 0, 0));
         panelAdminCliente.setPreferredSize(new java.awt.Dimension(1140, 628));
@@ -1327,6 +1388,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
                 .addContainerGap())
         );
 
+        panelAdmin.add(panelAdminCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, -1, -1));
+
         panelAdminTrabajador.setBackground(new java.awt.Color(0, 0, 0));
         panelAdminTrabajador.setPreferredSize(new java.awt.Dimension(1140, 628));
 
@@ -1518,6 +1581,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        panelAdmin.add(panelAdminTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, -1, -1));
 
         panelAdminMaquina.setBackground(new java.awt.Color(0, 0, 0));
         panelAdminMaquina.setPreferredSize(new java.awt.Dimension(1140, 628));
@@ -1852,59 +1917,27 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         labelTask4.setDescription(" ");
         panelAdminMaquina.add(labelTask4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
+        panelAdmin.add(panelAdminMaquina, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, -1, -1));
+
         btnAdminRetroceso.setText("buttonCircle1");
         btnAdminRetroceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdminRetrocesoActionPerformed(evt);
             }
         });
+        panelAdmin.add(btnAdminRetroceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 6, 20, 20));
 
         labelMetric3.setText("Administrador:");
+        panelAdmin.add(labelMetric3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 9, -1, -1));
 
         lblAdministrador.setText("xxxxxxxxx");
+        panelAdmin.add(lblAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 9, -1, -1));
 
-        javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
-        panelAdmin.setLayout(panelAdminLayout);
-        panelAdminLayout.setHorizontalGroup(
-            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAdminLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(labelMetric3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(lblAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAdminRetroceso, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(panelAdminLayout.createSequentialGroup()
-                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelAdminCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelAdminAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(avatarAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelAdminTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelAdminMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panelAdminLayout.setVerticalGroup(
-            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAdminLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdminRetroceso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelAdminLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelMetric3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(6, 6, 6)
-                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelAdminCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelAdminAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelAdminLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(avatarAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelAdminTrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelAdminMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        lblHoraAdmin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblHoraAdmin.setForeground(new java.awt.Color(255, 204, 0));
+        lblHoraAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHoraAdmin.setText("Hora");
+        panelAdmin.add(lblHoraAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 2, 140, 30));
 
         panelPrincipal.add(panelAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 660));
 
@@ -2901,6 +2934,12 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
 
         lblTrabajador.setText("xxxxxxxxx");
         panelTrab.add(lblTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 9, -1, -1));
+
+        lblHoraTrabajador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblHoraTrabajador.setForeground(new java.awt.Color(255, 204, 0));
+        lblHoraTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHoraTrabajador.setText("Hora");
+        panelTrab.add(lblHoraTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 2, 140, 30));
 
         panelPrincipal.add(panelTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 660));
 
@@ -4163,6 +4202,8 @@ try{
     private org.edisoncor.gui.label.LabelTask labelTask6;
     private org.edisoncor.gui.label.LabelTask labelTask7;
     private org.edisoncor.gui.label.LabelMetric lblAdministrador;
+    private javax.swing.JLabel lblHoraAdmin;
+    private javax.swing.JLabel lblHoraTrabajador;
     private org.edisoncor.gui.label.LabelMetric lblTrabTotalMatricula;
     private org.edisoncor.gui.label.LabelMetric lblTrabajador;
     private javax.swing.JList<String> listTrabMatricClases;
@@ -4253,22 +4294,7 @@ try{
     private org.edisoncor.gui.textField.TextFieldRound txtnombre1;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void insertUpdate(DocumentEvent e) {
-        String nombre= this.txtnombre.getText();
-        this.tablaClientes.setModel(f.listarClientesLetra(nombre));
-    }
-
-    @Override
-    public void removeUpdate(DocumentEvent e) {
-        String nombre = this.txtnombre.getText();
-        this.tablaClientes.setModel(f.listarClientesLetra(nombre));
-    }
-
-    @Override
-    public void changedUpdate(DocumentEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
 
     
