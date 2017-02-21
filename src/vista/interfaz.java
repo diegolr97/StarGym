@@ -24,6 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultCellEditor;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -387,7 +388,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         buttonAction48 = new org.edisoncor.gui.button.ButtonAction();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
+        listTrabMatricTarifa = new javax.swing.JList<>();
         buttonAeroRight2 = new org.edisoncor.gui.button.ButtonAeroRight();
         buttonAeroLeft2 = new org.edisoncor.gui.button.ButtonAeroLeft();
         jScrollPane19 = new javax.swing.JScrollPane();
@@ -2673,20 +2674,30 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo205.png"))); // NOI18N
 
-        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+        listTrabMatricTarifa.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane15.setViewportView(jList4);
+        jScrollPane15.setViewportView(listTrabMatricTarifa);
 
         buttonAeroRight2.setForeground(new java.awt.Color(0, 0, 0));
         buttonAeroRight2.setText(">>");
         buttonAeroRight2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        buttonAeroRight2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAeroRight2ActionPerformed(evt);
+            }
+        });
 
         buttonAeroLeft2.setForeground(new java.awt.Color(0, 0, 0));
         buttonAeroLeft2.setText("<<");
         buttonAeroLeft2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        buttonAeroLeft2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAeroLeft2ActionPerformed(evt);
+            }
+        });
 
         listTrabMatricClases.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -3460,6 +3471,7 @@ try{
             panelTrabCobro.setVisible(false);
             
             listTrabMatricClases.setModel(f.listTodasClases());
+            listTrabMatricTarifa.setModel(new DefaultListModel<>());
         }
         
         if(avatarTrab.getSelectedtitulo().equals("Cobros")){
@@ -3878,6 +3890,32 @@ try{
        // f.añadirCliente(txtAdminAdministradorNombre11.getText(), passwordField2.getText(), txtAdminAdministradorNombre10.getText(), fecha, txtAdminAdministradorDireccion5.getText(), Integer.parseInt(txtAdminAdministradorCodPostal5.getText()), txtAdminAdministradorTelefono7.getText(), Integer.parseInt(txtAdminAdministradorTelefono5.getText()), txtAdminAdministradorCorreo5.getText());
     }//GEN-LAST:event_buttonAction39ActionPerformed
 
+    private void buttonAeroRight2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAeroRight2ActionPerformed
+        // Trabajador matricula añadir a tarifa
+        if(listTrabMatricClases.getSelectedIndex() != -1){
+            DefaultListModel mt = (DefaultListModel) listTrabMatricTarifa.getModel();
+            mt.addElement(listTrabMatricClases.getSelectedValue());
+            
+            DefaultListModel mc = (DefaultListModel) listTrabMatricClases.getModel();
+            mc.remove(listTrabMatricClases.getSelectedIndex());
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecciona alguna clase");
+        }
+    }//GEN-LAST:event_buttonAeroRight2ActionPerformed
+
+    private void buttonAeroLeft2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAeroLeft2ActionPerformed
+        // Trabajador matricula añadir a clase
+        if(listTrabMatricTarifa.getSelectedIndex() != -1){
+            DefaultListModel mt = (DefaultListModel) listTrabMatricClases.getModel();
+            mt.addElement(listTrabMatricTarifa.getSelectedValue());
+            
+            DefaultListModel mc = (DefaultListModel) listTrabMatricTarifa.getModel();
+            mc.remove(listTrabMatricTarifa.getSelectedIndex());
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecciona alguna clase");
+        }
+    }//GEN-LAST:event_buttonAeroLeft2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3977,7 +4015,6 @@ try{
     private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -4120,6 +4157,7 @@ try{
     private org.edisoncor.gui.label.LabelMetric lblTrabTotalMatricula;
     private org.edisoncor.gui.label.LabelMetric lblTrabajador;
     private javax.swing.JList<String> listTrabMatricClases;
+    private javax.swing.JList<String> listTrabMatricTarifa;
     private javax.swing.JList<String> listaAdmin;
     private javax.swing.JList<String> listaClientes;
     private javax.swing.JList<String> listaClientes1;
