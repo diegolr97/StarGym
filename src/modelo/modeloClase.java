@@ -9,7 +9,10 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -174,7 +177,24 @@ public class modeloClase extends conexion implements interfazClase {
         return res;
     }
     
-    public void obtenerIdMonitor (String nombre){
-        
+    @Override
+    public DefaultListModel listTodasClases(){
+    DefaultListModel model = new DefaultListModel();
+        try {
+           PreparedStatement pstm = this.getConexion().prepareStatement( "select * from clase");
+           ResultSet res = pstm.executeQuery();
+            
+            while (res.next()) //go through each row that your query returns
+            {
+                String itemCode = res.getString("idClase") + " - " + res.getString("nombre"); 
+                model.addElement(itemCode); 
+            }
+            
+            res.close();
+            pstm.close();
+          } catch (SQLException ex) {
+            Logger.getLogger(modeloCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return model;
     }
 }

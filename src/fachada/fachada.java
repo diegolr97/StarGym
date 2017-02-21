@@ -120,7 +120,9 @@ public class fachada {
         return clase.modificarClase(idClase, nombre, precio, idMonitor);
     }
     
-    
+    public DefaultListModel listTodasClases(){
+        return clase.listTodasClases();
+    }
      
      //---------maquina--------------//
      

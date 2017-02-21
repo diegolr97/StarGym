@@ -391,7 +391,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         buttonAeroRight2 = new org.edisoncor.gui.button.ButtonAeroRight();
         buttonAeroLeft2 = new org.edisoncor.gui.button.ButtonAeroLeft();
         jScrollPane19 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList<>();
+        listTrabMatricClases = new javax.swing.JList<>();
         labelMetric51 = new org.edisoncor.gui.label.LabelMetric();
         labelMetric52 = new org.edisoncor.gui.label.LabelMetric();
         labelMetric53 = new org.edisoncor.gui.label.LabelMetric();
@@ -1520,9 +1520,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
 
         panelAdminMaquina.setBackground(new java.awt.Color(0, 0, 0));
         panelAdminMaquina.setPreferredSize(new java.awt.Dimension(1140, 628));
+        panelAdminMaquina.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel10.setBackground(new java.awt.Color(0, 0, 0));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel11.setBackground(new java.awt.Color(12, 12, 12));
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
@@ -1627,10 +1629,6 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane7)
                     .addComponent(labelMetric38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                         .addComponent(labelMetric46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1639,7 +1637,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
                         .addGap(18, 18, 18)
                         .addComponent(labelMetric47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbAdminMaquinas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(cmbAdminMaquinas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane7))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
@@ -1659,6 +1661,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 12, -1, 500));
 
         jPanel12.setBackground(new java.awt.Color(12, 12, 12));
         jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
@@ -1780,110 +1784,72 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addComponent(labelMetric33, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3)
-                            .addComponent(labelMetric33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labelMetric48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelMetric50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtAdminClasesNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbAdminClases, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel12Layout.createSequentialGroup()
-                                        .addGap(0, 60, Short.MAX_VALUE)
-                                        .addComponent(labelMetric49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAdminClasesPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel12Layout.createSequentialGroup()
-                                        .addComponent(buttonIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addContainerGap())))
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(labelMetric48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(txtAdminClasesNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(labelMetric49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(txtAdminClasesPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(labelMetric50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(cmbAdminClases, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(buttonIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(13, 13, 13))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
                 .addComponent(labelMetric33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAdminClasesNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelMetric48, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelMetric49, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAdminClasesPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(labelMetric48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAdminClasesNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric49, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAdminClasesPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(9, 9, 9)
                         .addComponent(labelMetric50, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbAdminClases, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)
+                        .addComponent(cmbAdminClases, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        jPanel10.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 541, 500));
+
+        panelAdminMaquina.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, -1, -1));
 
         labelTask4.setForeground(new java.awt.Color(255, 255, 255));
         labelTask4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/maquina42.png"))); // NOI18N
         labelTask4.setText("Clases");
         labelTask4.setDescription(" ");
-
-        javax.swing.GroupLayout panelAdminMaquinaLayout = new javax.swing.GroupLayout(panelAdminMaquina);
-        panelAdminMaquina.setLayout(panelAdminMaquinaLayout);
-        panelAdminMaquinaLayout.setHorizontalGroup(
-            panelAdminMaquinaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAdminMaquinaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelAdminMaquinaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAdminMaquinaLayout.createSequentialGroup()
-                        .addComponent(labelTask4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        panelAdminMaquinaLayout.setVerticalGroup(
-            panelAdminMaquinaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminMaquinaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelTask4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        panelAdminMaquina.add(labelTask4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         btnAdminRetroceso.setText("buttonCircle1");
         btnAdminRetroceso.addActionListener(new java.awt.event.ActionListener() {
@@ -2722,12 +2688,12 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
         buttonAeroLeft2.setText("<<");
         buttonAeroLeft2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
-        jList5.setModel(new javax.swing.AbstractListModel<String>() {
+        listTrabMatricClases.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane19.setViewportView(jList5);
+        jScrollPane19.setViewportView(listTrabMatricClases);
 
         labelMetric51.setText("Clases:");
 
@@ -2945,27 +2911,27 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
     private void btnLoguinEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoguinEntrarActionPerformed
         //Boton loguin entrar        
 
-        if(f.iniciarSesion(this.txtLoguinUsuario.getText(), this.txtLoguinContraseña.getText())==1){
-            panelLoguin.setVisible(false);
-            avatarAdmin.setVisible(true);
-            panelAdmin.setVisible(true);
-            panelAdminAdmin.setVisible(false);
-            
-            panelAdminCliente.setVisible(false);
-            panelAdminMaquina.setVisible(false);
-            panelAdminTrabajador.setVisible(false);
-            
-            avatarTrab.setVisible(false);
-            panelTrab.setVisible(false);
-            panelTrabPerfil.setVisible(false);
-            panelTrabCliente.setVisible(false);
-            panelTrabMatricula.setVisible(false);
-            panelTrabCobro.setVisible(false);
-            
-            //Colocar en el label superior izquierdo el identificador
-            lblAdministrador.setText(txtLoguinUsuario.getText());
-            
-        }else if(f.iniciarSesion(this.txtLoguinUsuario.getText(), this.txtLoguinContraseña.getText())==0){
+//        if(f.iniciarSesion(this.txtLoguinUsuario.getText(), this.txtLoguinContraseña.getText())==1){
+//            panelLoguin.setVisible(false);
+//            avatarAdmin.setVisible(true);
+//            panelAdmin.setVisible(true);
+//            panelAdminAdmin.setVisible(false);
+//            
+//            panelAdminCliente.setVisible(false);
+//            panelAdminMaquina.setVisible(false);
+//            panelAdminTrabajador.setVisible(false);
+//            
+//            avatarTrab.setVisible(false);
+//            panelTrab.setVisible(false);
+//            panelTrabPerfil.setVisible(false);
+//            panelTrabCliente.setVisible(false);
+//            panelTrabMatricula.setVisible(false);
+//            panelTrabCobro.setVisible(false);
+//            
+//            //Colocar en el label superior izquierdo el identificador
+//            lblAdministrador.setText(txtLoguinUsuario.getText());
+//            
+//        }else if(f.iniciarSesion(this.txtLoguinUsuario.getText(), this.txtLoguinContraseña.getText())==0){
             panelLoguin.setVisible(false);
             avatarTrab.setVisible(true);
             panelTrab.setVisible(true);
@@ -2984,9 +2950,9 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener{
             
             //Colocar en el label superior izquierdo el identificador
             lblTrabajador.setText(txtLoguinUsuario.getText());  
-        }else{
-           JOptionPane.showMessageDialog(null, "Datos incorrectos");
-        }
+//        }else{
+//           JOptionPane.showMessageDialog(null, "Datos incorrectos");
+//        }
     }//GEN-LAST:event_btnLoguinEntrarActionPerformed
 
     private void btnAdminIpodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminIpodActionPerformed
@@ -3417,6 +3383,13 @@ try{
         //Boton dialog monitores guardar
         f.añadirMonitor(this.txtMonitorDni.getText(), this.txtMonitorNombre.getText(), this.txtMonitorApellidos.getText(), Integer.parseInt(this.txtMonitorTelefono.getText()), this.txtMonitorCorreo.getText());
         this.tbMonitores.setModel(f.listarMonitores());
+        cmbAdminClases.setModel(f.comboMonitores());
+        
+        txtMonitorDni.setText("");
+        txtMonitorNombre.setText("");
+        txtMonitorApellidos.setText("");
+        txtMonitorTelefono.setText("");
+        txtMonitorCorreo.setText("");
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void tablaMaquinasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaMaquinasKeyPressed
@@ -3434,7 +3407,7 @@ try{
     }//GEN-LAST:event_buttonAction33ActionPerformed
 
     private void btnTrabIpodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabIpodActionPerformed
-        //Boton trabajador ipod
+        //Menu Trabajador
         if(avatarTrab.getSelectedtitulo().equals("Perfil")){
             panelLoguin.setVisible(false);
             avatarTrab.setVisible(false);
@@ -3485,6 +3458,8 @@ try{
             panelTrabCliente.setVisible(false);
             panelTrabMatricula.setVisible(true);
             panelTrabCobro.setVisible(false);
+            
+            listTrabMatricClases.setModel(f.listTodasClases());
         }
         
         if(avatarTrab.getSelectedtitulo().equals("Cobros")){
@@ -3737,7 +3712,7 @@ try{
 
     private void buttonAction14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction14ActionPerformed
         //boton admin trabajador guardar
-        if(!txtAdminTrabajDni.getText().isEmpty() && !txtAdminTrabajContrsña.getText().isEmpty() && txtAdminTrabajContrsña.getText().isEmpty() && !txtAdminTrabajNombre.getText().isEmpty() && !txtAdminTrabajApellid.getText().isEmpty() && !txtAdminTrabajDireccion.getText().isEmpty() && !txtAdminTrabajTeled.getText().isEmpty() && !txtAdminTrabajCorreo.getText().isEmpty() && !txtAdminTrabajCP.getText().isEmpty()){
+        if(!txtAdminTrabajDni.getText().isEmpty() && !txtAdminTrabajContrsña.getText().isEmpty() && !txtAdminTrabajNombre.getText().isEmpty() && !txtAdminTrabajApellid.getText().isEmpty() && !txtAdminTrabajDireccion.getText().isEmpty() && !txtAdminTrabajTeled.getText().isEmpty() && !txtAdminTrabajCorreo.getText().isEmpty() && !txtAdminTrabajCP.getText().isEmpty()){
         if(c.comprobacion(txtAdminTrabajCP.getText())  && c.comprobacion(txtAdminTrabajTeled.getText())){
         f.añadirTrabajador(txtAdminTrabajDni.getText(), txtAdminTrabajContrsña.getText(), 0, txtAdminTrabajNombre.getText(), txtAdminTrabajApellid.getText(), txtAdminTrabajDireccion.getText(), Integer.parseInt(txtAdminTrabajTeled.getText()), txtAdminTrabajCorreo.getText(),Integer.parseInt(txtAdminTrabajCP.getText()));
         this.listaTrabajadores.setModel(f.listTrabajador());
@@ -4003,7 +3978,6 @@ try{
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList4;
-    private javax.swing.JList<String> jList5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -4145,6 +4119,7 @@ try{
     private org.edisoncor.gui.label.LabelMetric lblAdministrador;
     private org.edisoncor.gui.label.LabelMetric lblTrabTotalMatricula;
     private org.edisoncor.gui.label.LabelMetric lblTrabajador;
+    private javax.swing.JList<String> listTrabMatricClases;
     private javax.swing.JList<String> listaAdmin;
     private javax.swing.JList<String> listaClientes;
     private javax.swing.JList<String> listaClientes1;

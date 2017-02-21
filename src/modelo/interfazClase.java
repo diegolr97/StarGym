@@ -6,6 +6,7 @@
 package modelo;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,5 +27,5 @@ public interface interfazClase {
     
     public boolean modificarClase(int idClase, String nombre, double precio, String idMonitor);
     
-    
+    public DefaultListModel listTodasClases();
 }
