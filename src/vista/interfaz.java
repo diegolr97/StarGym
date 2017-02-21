@@ -3422,6 +3422,7 @@ try{
         dir = "src/reporte/matricula.jrxml";
         Map parametro = new HashMap();
         parametro.put("parameter1", txtAdminClienteDni.getText());
+        parametro.put("dni", txtAdminClienteDni.getText());
         JasperReport reporteJasper = JasperCompileManager.compileReport(dir);
         JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, parametro, cn.getConexion());
         JasperViewer visor = new JasperViewer(mostrarReporte, false);

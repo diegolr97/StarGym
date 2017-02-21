@@ -14,6 +14,7 @@
 		</conditionalStyle>
 	</style>
 	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
      clase.`nombre` AS clase_nombre,
@@ -126,41 +127,6 @@ WHERE cliente.`dni` = $P{parameter1}]]>
 		<band height="188" splitType="Stretch">
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="302fbfd2-8fe5-44ad-bbd5-e2512cc24b0a"/>
-				<staticText>
-					<reportElement style="Column header" x="0" y="0" width="94" height="18" forecolor="#000000" uuid="8e846170-7d25-4b0a-805d-b3a328553773"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[DNI]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="94" y="0" width="74" height="18" forecolor="#000000" uuid="bdcc5096-5077-444d-850b-cbb949d02ea9"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[NOMBRE]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="168" y="0" width="104" height="18" forecolor="#000000" uuid="5dd17705-f080-4f4d-a1fb-f708954eeaba"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[APELLIDOS]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="272" y="0" width="84" height="18" forecolor="#000000" uuid="27d88d59-3eb1-4f0e-93b0-914a83b718a9"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[FECHANAC]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="Column header" x="356" y="0" width="103" height="18" forecolor="#000000" uuid="4ea53215-48a0-43e9-92bc-05398ee00a63"/>
-					<textElement>
-						<font isBold="false"/>
-					</textElement>
-					<text><![CDATA[DIRECCION]]></text>
-				</staticText>
 			</frame>
 			<textField isStretchWithOverflow="true">
 				<reportElement style="Detail" positionType="Float" x="108" y="149" width="38" height="18" uuid="712bb57b-cf14-4605-95f6-53fb3b2edfa8"/>
@@ -177,69 +143,6 @@ WHERE cliente.`dni` = $P{parameter1}]]>
 				<textFieldExpression><![CDATA[$F{clase_nombre}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="2" y="18" width="92" height="18" uuid="bf3d484c-7dba-426e-860b-b4bcf7bf9217"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_dni}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="94" y="18" width="74" height="18" uuid="86d28573-bad1-48ea-8892-70c35e1ccc34"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_nombre}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="168" y="18" width="104" height="18" uuid="c26c5c6a-697a-4d17-a5d4-bc44b169641d"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_apellidos}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="272" y="18" width="83" height="18" uuid="5c39ddb2-a221-4151-8fce-6c01da9e76ed"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_fechaNacimiento}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="356" y="18" width="103" height="18" uuid="6093df63-97e5-44a0-a415-2ebb7040002b"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_direccion}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="2" y="77" width="92" height="18" uuid="4a4e81fd-de12-4dea-9654-9ab3645331a7"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_codPostal}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="94" y="77" width="87" height="18" uuid="04ca4ed3-258b-4bdc-877e-f3caccb3a1f3"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_ciudad}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="181" y="77" width="91" height="18" uuid="1cce8519-df0d-47ce-8843-7f995e89d7ce"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_telefono}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" positionType="Float" x="272" y="77" width="281" height="18" uuid="a6ade7e1-f11d-4d4e-919b-d94cb3cef14f"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente_correo}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
 				<reportElement style="Detail" positionType="Float" x="328" y="149" width="63" height="18" uuid="f912a664-9d2e-4a23-a41a-a9e3ab481f21"/>
 				<textElement>
 					<font size="14"/>
@@ -253,34 +156,6 @@ WHERE cliente.`dni` = $P{parameter1}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{monitores_apellidos}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement style="Column header" x="2" y="59" width="92" height="18" forecolor="#000000" uuid="8f1bf499-bd68-44b7-b2b5-5346ca82555d"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[POSTAL]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="94" y="59" width="87" height="18" forecolor="#000000" uuid="5d49a46d-4f1b-4bcf-9766-8c4e05e7d734"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[CIUDAD]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="181" y="59" width="91" height="18" forecolor="#000000" uuid="db2cfe51-bdb5-4988-9230-04320829c054"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[TELEFONO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="272" y="59" width="281" height="18" forecolor="#000000" uuid="0e159852-6e5e-40d1-b5e8-86446ef7a159"/>
-				<textElement>
-					<font isBold="false"/>
-				</textElement>
-				<text><![CDATA[CORREO]]></text>
-			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="2" y="131" width="92" height="18" forecolor="#000000" uuid="10b9e481-6f03-43ce-9727-102cb8317019"/>
 				<textElement>
@@ -301,6 +176,14 @@ WHERE cliente.`dni` = $P{parameter1}]]>
 					<font isBold="false"/>
 				</textElement>
 				<text><![CDATA[MONITOR]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="44" y="0" width="82" height="20" uuid="6fa8390c-1e85-46d2-8965-678ac1983081"/>
+				<textFieldExpression><![CDATA[DNI]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="0" width="33" height="20" uuid="585762f0-3f45-4ead-bdee-ec435baa7a09"/>
+				<text><![CDATA[DNI:]]></text>
 			</staticText>
 		</band>
 	</detail>
