@@ -3416,14 +3416,23 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
     private void buttonAction9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction9ActionPerformed
 try{
+    String fecha = new SimpleDateFormat("yyyy-MM-dd").format(this.fecha.getDate());
         
         conexion cn = new conexion();
         String dir;
         dir = "src/reporte/matriculaCli.jrxml";
         Map parametro = new HashMap();
         parametro.put("parameter1", txtAdminClienteDni.getText());
-//        parametro.put("parameter2", txtAdminClienteNombre.getText());
-//        parametro.put("parameter3", txtAdminClienteApellidos.getText());
+        parametro.put("dni", txtAdminClienteDni.getText());
+        parametro.put("nombre", txtAdminClienteNombre.getText());
+        parametro.put("apellidos", txtAdminClienteApellidos.getText());
+        parametro.put("fechanac", fecha);
+        parametro.put("direccion", txtAdminClienteDireccion.getText());
+        parametro.put("cp", txtAdminClienteCP.getText());
+        parametro.put("ciudad", txtAdminClienteCiudad.getText());
+        parametro.put("telefono", txtAdminClienteTelefono.getText());
+        
+
         JasperReport reporteJasper = JasperCompileManager.compileReport(dir);
         JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, parametro, cn.getConexion());
         JasperViewer visor = new JasperViewer(mostrarReporte, false);
