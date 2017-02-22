@@ -114,8 +114,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         List<Avatar> avatarsTrab = new ArrayList<Avatar>();
         avatarsTrab.add(new Avatar("Perfil", loadImage("/imagenes/admin.png")));
         avatarsTrab.add(new Avatar("Clientes", loadImage("/imagenes/clients.png")));
-        avatarsTrab.add(new Avatar("Matricula", loadImage("/imagenes/trabajador.png")));
-        avatarsTrab.add(new Avatar("Cobros", loadImage("/imagenes/maquina.png")));
+        avatarsTrab.add(new Avatar("Matricula", loadImage("/imagenes/matricula.png")));
+        avatarsTrab.add(new Avatar("Cobros", loadImage("/imagenes/cobros.png")));
         avatarsTrab.add(new Avatar("Exit", loadImage("/imagenes/exit.png")));
         
         avatarTrab.setAvatars(avatarsTrab);
@@ -2811,7 +2811,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         panelTrabMatricula.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 151, 1020, 420));
 
         labelTask7.setForeground(new java.awt.Color(255, 255, 255));
-        labelTask7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/trabajador42.png"))); // NOI18N
+        labelTask7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/matricula42.png"))); // NOI18N
         labelTask7.setText("Matricula");
         labelTask7.setDescription(" ");
         panelTrabMatricula.add(labelTask7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
@@ -2911,8 +2911,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         panelTrabCobro.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, 1120, 531));
 
         Cobro.setForeground(new java.awt.Color(255, 255, 255));
-        Cobro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/trabajador42.png"))); // NOI18N
-        Cobro.setText("Trabajador");
+        Cobro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cobros42.png"))); // NOI18N
+        Cobro.setText("Cobros");
         Cobro.setDescription(" ");
         panelTrabCobro.add(Cobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 

@@ -13,7 +13,7 @@ import java.sql.*;
  */
 public class conexion {
     
-    private static String  host = "192.168.28.3";  
+    private static String  host = "79.148.236.236";  
     private String db = "dam20_Gimnasio";
     private String user = "dam20";
     private String password = "salesianas";
@@ -22,7 +22,7 @@ public class conexion {
 
    /** Constructor de clase */
    public conexion(){
-        this.url = "jdbc:mysql://192.168.28.3/"+this.db;
+        this.url = "jdbc:mysql://79.148.236.236/"+this.db;
        try{
          //obtenemos el driver de para mysql
          Class.forName("com.mysql.jdbc.Driver");
