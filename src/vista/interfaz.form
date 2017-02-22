@@ -4380,7 +4380,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="30" y="60" width="820" height="440"/>
+                          <AbsoluteConstraints x="30" y="60" width="840" height="440"/>
                         </Constraint>
                       </Constraints>
 
@@ -4390,10 +4390,21 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="689" max="-2" attributes="0"/>
                                   <Component id="buttonAction46" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="labelMetric83" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jScrollPane18" min="-2" pref="390" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jScrollPane20" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                                           <Component id="labelMetric81" min="-2" max="-2" attributes="0"/>
@@ -4401,19 +4412,9 @@
                                           <Component id="txtnombre2" min="-2" pref="150" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="comboBoxRectIcon1" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Component id="labelMetric88" min="-2" pref="301" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="labelMetric83" max="32767" attributes="0"/>
-                                              <Component id="jScrollPane18" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane20" alignment="1" min="-2" pref="302" max="-2" attributes="0"/>
-                                      <Component id="labelMetric88" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -4541,6 +4542,9 @@
                               </StringArray>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxRectIcon1ActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>

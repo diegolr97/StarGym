@@ -75,6 +75,21 @@ public class fachada {
     public boolean modificarCliente(String dni, String nombre, String apellidos, String fechaNacimiento, String direccion, int codPostal, String ciudad, int telefono, String correo){
          return cliente.modificarCliente(dni, nombre, apellidos, fechaNacimiento, direccion, codPostal, ciudad, telefono, correo);
      }
+    public DefaultTableModel listarClientesDNI(String dni){
+        return cliente.listarClientesDNI(dni);
+    }
+    public DefaultTableModel listarClientesApellidos(String apellidos){
+        return cliente.listarClientesApellidos(apellidos);
+    }
+    public DefaultTableModel listarClientesCobros(){
+        return cliente.listarClientesCobros();
+    }
+    public DefaultTableModel listarClientesNombre(String nombre){
+        return cliente.listarClientesNombre(nombre);
+    }
+    public DefaultTableModel listarCobros(String dni){
+        return cliente.listarCobros(dni);
+    }
      
      //-------Aministradores---------//
      

@@ -229,6 +229,142 @@ public class modeloCliente extends conexion implements interfazCliente {
         
     }
       @Override
+      public DefaultTableModel listarClientesDNI(String dni)
+    {
+      
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0;
+      String[] columNames = {"DNI", "Nombre", "Apellidos", "Nacimiento"};
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as todo FROM cliente where dni like'"+dni+"%'");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("todo");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+    Object[][] data = new String[registros][4];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM cliente where dni like'"+dni+"%'");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                
+                data[i][0] = res.getString("dni");
+                data[i][1] = res.getString("nombre");
+                data[i][2] = res.getString("apellidos");
+                data[i][3] = res.getString("fechaNacimiento");
+               
+                    
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+        
+    }
+      @Override
+      public DefaultTableModel listarClientesApellidos(String apellidos)
+    {
+      
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0;
+      String[] columNames = {"DNI", "Nombre", "Apellidos", "Nacimiento"};
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as todo FROM cliente where apellidos like'"+apellidos+"%'");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("todo");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+    Object[][] data = new String[registros][4];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM cliente where apellidos like'"+apellidos+"%'");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                
+                data[i][0] = res.getString("dni");
+                data[i][1] = res.getString("nombre");
+                data[i][2] = res.getString("apellidos");
+                data[i][3] = res.getString("fechaNacimiento");
+                
+                    
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+        
+    }
+      @Override
+      public DefaultTableModel listarClientesNombre(String nombre)
+    {
+      
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0;
+      String[] columNames = {"DNI", "Nombre", "Apellidos", "Nacimiento"};
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as todo FROM cliente where nombre like'"+nombre+"%'");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("todo");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+    Object[][] data = new String[registros][4];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM cliente where nombre like'"+nombre+"%'");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                
+                data[i][0] = res.getString("dni");
+                data[i][1] = res.getString("nombre");
+                data[i][2] = res.getString("apellidos");
+                data[i][3] = res.getString("fechaNacimiento");
+                
+                    
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+        
+    }
+      
+      
+      
+      
+      @Override
       public boolean añadirAdministrador(String idEmpleado, String clave, int admin, String nombre, String apellidos, String direccion, int telefono, String correo, int codPostal){
          boolean res=false;
         
@@ -282,6 +418,99 @@ public class modeloCliente extends conexion implements interfazCliente {
         }
         return res;
         }
+     
+     @Override
+      public DefaultTableModel listarClientesCobros()
+    {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+    
+      int registros = 0;
+      String[] columNames = {"DNI", "Nombre", "Apellidos", "Nacimiento"};
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+       CallableStatement cstmt = this.getConexion().prepareCall("{call numeroClientes}");
+        ResultSet res = cstmt.executeQuery();
+         res.next();
+         registros = res.getInt("todo");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+     Object[][] data = new String[registros][4];
+     try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+        CallableStatement cstmt = this.getConexion().prepareCall("{call listarClientesCobro}");
+        ResultSet res = cstmt.executeQuery();
+         int i=0;
+         while(res.next()){
+                
+                data[i][0] = res.getString("dni");
+                data[i][1] = res.getString("nombre");
+                data[i][2] = res.getString("apellidos");
+                data[i][3] = res.getString("fechaNacimiento");
+                
+                
+                     
+            i++;
+         }
+         res.close();
+        //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+        
+    }
+      
+      @Override
+      public DefaultTableModel listarCobros(String dni)
+    {
+      
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0;
+      String[] columNames = {"DNI", "Nombre", "Apellidos", "idMensualidad",  "NumClases", "Coste"};
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(b.idMensualidad) as todo FROM matricula a, mensualidad b, cliente c where c.dni = a.idCliente and a.idMatricula = b.idMatricula and c.dni='" + dni + "'");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("todo");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+    Object[][] data = new String[registros][6];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("select t.dni, t.nombre, t.apellidos, u.idMensualidad, (select count(d.idClase) from cliente a, matricula b, tarifa c, clase d where a.dni=b.idCliente and b.idMatricula=c.idMatricula and c.idClase=d.idClase) as totalclases, u.coste from cliente t, matricula y, mensualidad u where t.dni = y.idCliente and y.idMatricula=u.idMatricula and t.dni='" + dni + "'");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                
+                data[i][0] = res.getString("t.dni");
+                data[i][1] = res.getString("t.nombre");
+                data[i][2] = res.getString("apellidos");
+                data[i][3] = res.getString("u.idMensualidad");
+                data[i][4] = res.getString("totalclases");
+                data[i][5] = res.getString("u.coste");
+                
+                    
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+        
+    }
         
     }
       

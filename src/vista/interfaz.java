@@ -89,6 +89,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         
         this.txtnombre.getDocument().addDocumentListener(this);
         this.txtnombre1.getDocument().addDocumentListener(this);
+        this.txtnombre2.getDocument().addDocumentListener(this);
         
         h1 = new Thread(this);
         h1.start();
@@ -147,20 +148,54 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     
     @Override
     public void insertUpdate(DocumentEvent e) {
+        //listarClientesAdmin
         String nombre= this.txtnombre.getText();
         this.tablaClientes.setModel(f.listarClientesLetra(nombre));
-        
+        //listarClientesTrabajador
         String nombre1 = this.txtnombre1.getText();
         this.tablaClientes2.setModel(f.listarClientesLetra(nombre1));
+        
+        //cobros
+        String nombre2 = this.txtnombre2.getText();
+        if(comboBoxRectIcon1.getSelectedItem().equals("Dni")){
+            this.tablaTrabCobroCliente.setModel(f.listarClientesDNI(nombre2));
+            
+        }else if(comboBoxRectIcon1.getSelectedItem().equals("Nombre")){
+            this.tablaTrabCobroCliente.setModel(f.listarClientesNombre(nombre2));
+            
+            
+        }else if(comboBoxRectIcon1.getSelectedItem().equals("Apellidos")){
+            this.tablaTrabCobroCliente.setModel(f.listarClientesApellidos(nombre2));
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecciona alguna opción");
+        }
+            
+        
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
+        //Retroceso listarClientesAdmin
         String nombre = this.txtnombre.getText();
         this.tablaClientes.setModel(f.listarClientesLetra(nombre));
-        
+        //Retroceso listarClientesTrabajador
         String nombre1 = this.txtnombre1.getText();
         this.tablaClientes2.setModel(f.listarClientesLetra(nombre1));
+        
+        // Retroceso cobros
+        String nombre2 = this.txtnombre2.getText();
+        if(comboBoxRectIcon1.getSelectedItem().equals("Dni")){
+            this.tablaTrabCobroCliente.setModel(f.listarClientesDNI(nombre2));
+            
+        }else if(comboBoxRectIcon1.getSelectedItem().equals("Nombre")){
+            this.tablaTrabCobroCliente.setModel(f.listarClientesNombre(nombre2));
+            
+            
+        }else if(comboBoxRectIcon1.getSelectedItem().equals("Apellidos")){
+            this.tablaTrabCobroCliente.setModel(f.listarClientesApellidos(nombre2));
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecciona alguna opción");
+        }
         
         
     }
@@ -2899,6 +2934,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric81.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         comboBoxRectIcon1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dni", "Nombre", "Apellidos" }));
+        comboBoxRectIcon1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxRectIcon1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
         jPanel29.setLayout(jPanel29Layout);
@@ -2907,25 +2947,26 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
             .addGroup(jPanel29Layout.createSequentialGroup()
                 .addGap(689, 689, 689)
                 .addComponent(buttonAction46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
                 .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel29Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelMetric83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel29Layout.createSequentialGroup()
+                                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel29Layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(labelMetric81, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(comboBoxRectIcon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel29Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelMetric83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane18))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelMetric88, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboBoxRectIcon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(19, 19, 19)
+                        .addComponent(labelMetric88, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel29Layout.setVerticalGroup(
@@ -2950,7 +2991,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
                 .addGap(11, 11, 11))
         );
 
-        jPanel26.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 820, 440));
+        jPanel26.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 840, 440));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo205.png"))); // NOI18N
         jPanel26.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, -1, 211));
@@ -3590,6 +3631,8 @@ try{
             panelTrabMatricula.setVisible(false);
             panelTrabCobro.setVisible(true);
             
+            this.tablaTrabCobroCliente.setModel(f.listarClientesCobros());
+            
 
         }
         
@@ -3718,7 +3761,8 @@ try{
     }//GEN-LAST:event_txtTrabMatriculaDniActionPerformed
 
     private void tablaTrabCobroClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaTrabCobroClienteMouseClicked
-        // TODO add your handling code here:
+        String dni=(String) tablaTrabCobroCliente.getValueAt(tablaTrabCobroCliente.getSelectedRow(), 0);
+        this.tablaTrabCobroMensual.setModel(f.listarCobros(dni));
     }//GEN-LAST:event_tablaTrabCobroClienteMouseClicked
 
     private void tablaTrabCobroClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaTrabCobroClienteKeyReleased
@@ -4107,6 +4151,10 @@ try{
             JOptionPane.showMessageDialog(null, "Selecciona alguna clase");
         }
     }//GEN-LAST:event_buttonAeroRight1ActionPerformed
+
+    private void comboBoxRectIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxRectIcon1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxRectIcon1ActionPerformed
 
     /**
      * @param args the command line arguments
