@@ -3901,25 +3901,26 @@
                                           <EmptySpace min="71" pref="71" max="-2" attributes="0"/>
                                           <Component id="labelMetric78" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                          <Component id="txtAdminAdministradorNombre11" min="-2" pref="214" max="-2" attributes="0"/>
+                                          <Component id="txtTrabMatriculaDni" min="-2" pref="214" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                           <Component id="labelMetric79" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="passwordField2" min="-2" pref="177" max="-2" attributes="0"/>
+                                          <Component id="txtTrabMatriculaNombre" min="-2" pref="183" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
                                           <Component id="labelMetric73" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="txtAdminAdministradorTelefono5" min="-2" pref="183" max="-2" attributes="0"/>
+                                          <Component id="txtTrabMatriculaTelefono" min="-2" pref="183" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="labelMetric77" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                          <Component id="txtAdminAdministradorCorreo5" max="32767" attributes="0"/>
+                                          <Component id="txtTrabMatriculaCorreo" max="32767" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="labelMetric76" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtAdminAdministradorCodPostal5" min="-2" pref="57" max="-2" attributes="0"/>
+                                          <Component id="txtTrabMatriculaCP" min="-2" pref="57" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -3927,12 +3928,12 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="labelMetric74" min="-2" pref="80" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="txtAdminAdministradorNombre10" min="-2" pref="286" max="-2" attributes="0"/>
+                                                  <Component id="txtTrabMatriculaApellidos" min="-2" pref="286" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="labelMetric72" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                                  <Component id="txtAdminAdministradorDireccion5" min="-2" pref="286" max="-2" attributes="0"/>
+                                                  <Component id="txtTrabMatriculaDireccion" min="-2" pref="286" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -3940,13 +3941,13 @@
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="labelMetric80" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                                  <Component id="txtAdminAdministradorCorreo7" max="32767" attributes="0"/>
+                                                  <Component id="txtTrabMatriculaCiudad" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
                                                   <EmptySpace pref="10" max="32767" attributes="0"/>
                                                   <Component id="labelMetric75" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                                  <Component id="fecha3" min="-2" pref="158" max="-2" attributes="0"/>
+                                                  <Component id="dcMatricula" min="-2" pref="158" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -3959,16 +3960,21 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtAdminAdministradorNombre11" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="passwordField2" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="labelMetric78" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="labelMetric79" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="txtTrabMatriculaDni" min="-2" pref="24" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="labelMetric78" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="labelMetric79" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="txtTrabMatriculaNombre" min="-2" pref="24" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -3979,22 +3985,21 @@
                                                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                                                   <Component id="labelMetric74" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="txtAdminAdministradorNombre10" min="-2" pref="24" max="-2" attributes="0"/>
+                                              <Component id="txtTrabMatriculaApellidos" min="-2" pref="24" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="labelMetric75" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="fecha3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="dcMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtAdminAdministradorDireccion5" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="txtAdminAdministradorCorreo7" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="txtTrabMatriculaDireccion" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="txtTrabMatriculaCiudad" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -4005,9 +4010,9 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtAdminAdministradorTelefono5" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="txtAdminAdministradorCorreo5" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="txtAdminAdministradorCodPostal5" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="txtTrabMatriculaTelefono" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="txtTrabMatriculaCorreo" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="txtTrabMatriculaCP" min="-2" pref="24" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -4039,7 +4044,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="org.edisoncor.gui.textField.TextField" name="txtAdminAdministradorTelefono5">
+                        <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabMatriculaTelefono">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
@@ -4054,14 +4059,14 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="org.edisoncor.gui.textField.TextField" name="txtAdminAdministradorNombre10">
+                        <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabMatriculaApellidos">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="org.edisoncor.gui.textField.TextField" name="txtAdminAdministradorDireccion5">
+                        <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabMatriculaDireccion">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
@@ -4084,7 +4089,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="org.edisoncor.gui.textField.TextField" name="txtAdminAdministradorCodPostal5">
+                        <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabMatriculaCP">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
@@ -4099,7 +4104,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="org.edisoncor.gui.textField.TextField" name="txtAdminAdministradorCorreo5">
+                        <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabMatriculaCorreo">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
@@ -4114,14 +4119,14 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="org.edisoncor.gui.textField.TextField" name="txtAdminAdministradorNombre11">
+                        <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabMatriculaDni">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAdminAdministradorNombre11ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTrabMatriculaDniActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="org.edisoncor.gui.label.LabelMetric" name="labelMetric79">
@@ -4132,16 +4137,9 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="org.edisoncor.gui.passwordField.PasswordField" name="passwordField2">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Arial" size="14" style="1"/>
-                            </Property>
-                          </Properties>
+                        <Component class="com.toedter.calendar.JDateChooser" name="dcMatricula">
                         </Component>
-                        <Component class="com.toedter.calendar.JDateChooser" name="fecha3">
-                        </Component>
-                        <Component class="org.edisoncor.gui.textField.TextField" name="txtAdminAdministradorCorreo7">
+                        <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabMatriculaCiudad">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
@@ -4150,9 +4148,16 @@
                         </Component>
                         <Component class="org.edisoncor.gui.label.LabelMetric" name="labelMetric80">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Correo:"/>
+                            <Property name="text" type="java.lang.String" value="Ciudad:"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="18" style="1"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabMatriculaNombre">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Arial" size="14" style="1"/>
                             </Property>
                           </Properties>
                         </Component>
@@ -4178,8 +4183,8 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="buttonAction39" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="buttonAction48" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnTrabMatriculaRealizar" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnTrabMatriculaNueva" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -4189,24 +4194,24 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="buttonAction48" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnTrabMatriculaNueva" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="buttonAction39" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnTrabMatriculaRealizar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction39">
+                        <Component class="org.edisoncor.gui.button.ButtonAction" name="btnTrabMatriculaRealizar">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Realizar"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAction39ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTrabMatriculaRealizarActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction48">
+                        <Component class="org.edisoncor.gui.button.ButtonAction" name="btnTrabMatriculaNueva">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Nueva"/>
                           </Properties>

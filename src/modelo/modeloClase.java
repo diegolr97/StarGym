@@ -208,8 +208,7 @@ public class modeloClase extends conexion implements interfazClase {
         float total = 0;
         
         for(int i = 0; i < mt.size(); i++){
-            
-            
+
             String id = (String) mt.getElementAt(i);
             
             List<String> l = Arrays.asList(id.split(" "));

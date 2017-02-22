@@ -18,6 +18,7 @@ import modelo.interfazClase;
 import modelo.interfazCliente;
 import modelo.interfazLogin;
 import modelo.interfazMaquina;
+import modelo.interfazMatricula;
 import modelo.interfazMonitor;
 import modelo.interfazTrabajador;
 import modelo.login;
@@ -25,6 +26,7 @@ import modelo.modeloAdministrador;
 import modelo.modeloClase;
 import modelo.modeloCliente;
 import modelo.modeloMaquina;
+import modelo.modeloMatricula;
 import modelo.modeloMonitor;
 import modelo.modeloTrabajador;
 
@@ -148,6 +150,15 @@ public class fachada {
      public boolean modificarMaquina(int idMaquina, int idClase, String descripcion){
          return maquina.modificarMaquina(idMaquina, idClase, descripcion);
      }
+     
+     
+     //---------matricula-----------//
+     
+      private interfazMatricula matricula = new modeloMatricula();
+      
+      public boolean añadirMatricula(String dni, String nombre, String apellidos, String fechaNacimiento, String direccion, int codPostal, String ciudad, int telefono, String correo, String fecha, double coste, DefaultListModel lista){
+          return matricula.añadirMatricula(dni, nombre, apellidos, fechaNacimiento, direccion, codPostal, ciudad, telefono, correo, fecha, coste, lista);
+      }
      
      //-------monitores------------//
      

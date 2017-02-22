@@ -8,6 +8,7 @@ package vista;
 
 import clases.Administrador;
 import clases.Trabajador;
+import com.toedter.calendar.JDateChooser;
 import fachada.fachada;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -424,25 +425,25 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         jPanel24 = new javax.swing.JPanel();
         labelMetric72 = new org.edisoncor.gui.label.LabelMetric();
         labelMetric73 = new org.edisoncor.gui.label.LabelMetric();
-        txtAdminAdministradorTelefono5 = new org.edisoncor.gui.textField.TextField();
+        txtTrabMatriculaTelefono = new org.edisoncor.gui.textField.TextField();
         labelMetric74 = new org.edisoncor.gui.label.LabelMetric();
-        txtAdminAdministradorNombre10 = new org.edisoncor.gui.textField.TextField();
-        txtAdminAdministradorDireccion5 = new org.edisoncor.gui.textField.TextField();
+        txtTrabMatriculaApellidos = new org.edisoncor.gui.textField.TextField();
+        txtTrabMatriculaDireccion = new org.edisoncor.gui.textField.TextField();
         labelMetric75 = new org.edisoncor.gui.label.LabelMetric();
         labelMetric76 = new org.edisoncor.gui.label.LabelMetric();
-        txtAdminAdministradorCodPostal5 = new org.edisoncor.gui.textField.TextField();
+        txtTrabMatriculaCP = new org.edisoncor.gui.textField.TextField();
         labelMetric77 = new org.edisoncor.gui.label.LabelMetric();
-        txtAdminAdministradorCorreo5 = new org.edisoncor.gui.textField.TextField();
+        txtTrabMatriculaCorreo = new org.edisoncor.gui.textField.TextField();
         labelMetric78 = new org.edisoncor.gui.label.LabelMetric();
-        txtAdminAdministradorNombre11 = new org.edisoncor.gui.textField.TextField();
+        txtTrabMatriculaDni = new org.edisoncor.gui.textField.TextField();
         labelMetric79 = new org.edisoncor.gui.label.LabelMetric();
-        passwordField2 = new org.edisoncor.gui.passwordField.PasswordField();
-        fecha3 = new com.toedter.calendar.JDateChooser();
-        txtAdminAdministradorCorreo7 = new org.edisoncor.gui.textField.TextField();
+        dcMatricula = new com.toedter.calendar.JDateChooser();
+        txtTrabMatriculaCiudad = new org.edisoncor.gui.textField.TextField();
         labelMetric80 = new org.edisoncor.gui.label.LabelMetric();
+        txtTrabMatriculaNombre = new org.edisoncor.gui.textField.TextField();
         jPanel25 = new javax.swing.JPanel();
-        buttonAction39 = new org.edisoncor.gui.button.ButtonAction();
-        buttonAction48 = new org.edisoncor.gui.button.ButtonAction();
+        btnTrabMatriculaRealizar = new org.edisoncor.gui.button.ButtonAction();
+        btnTrabMatriculaNueva = new org.edisoncor.gui.button.ButtonAction();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
         listTrabMatricTarifa = new javax.swing.JList<>();
@@ -2530,14 +2531,14 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric73.setText("Telefono:");
         labelMetric73.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        txtAdminAdministradorTelefono5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtTrabMatriculaTelefono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         labelMetric74.setText("Apellidos:");
         labelMetric74.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        txtAdminAdministradorNombre10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtTrabMatriculaApellidos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
-        txtAdminAdministradorDireccion5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtTrabMatriculaDireccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         labelMetric75.setText("F. Nacimiento:");
         labelMetric75.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -2545,32 +2546,32 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric76.setText("C.P.");
         labelMetric76.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        txtAdminAdministradorCodPostal5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtTrabMatriculaCP.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         labelMetric77.setText("Correo:");
         labelMetric77.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        txtAdminAdministradorCorreo5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtTrabMatriculaCorreo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         labelMetric78.setText("Dni:");
         labelMetric78.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        txtAdminAdministradorNombre11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtAdminAdministradorNombre11.addActionListener(new java.awt.event.ActionListener() {
+        txtTrabMatriculaDni.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtTrabMatriculaDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAdminAdministradorNombre11ActionPerformed(evt);
+                txtTrabMatriculaDniActionPerformed(evt);
             }
         });
 
         labelMetric79.setText("Nombre:");
         labelMetric79.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        passwordField2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtTrabMatriculaCiudad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
-        txtAdminAdministradorCorreo7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-
-        labelMetric80.setText("Correo:");
+        labelMetric80.setText("Ciudad:");
         labelMetric80.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        txtTrabMatriculaNombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -2582,61 +2583,65 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
                         .addGap(71, 71, 71)
                         .addComponent(labelMetric78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(txtAdminAdministradorNombre11, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTrabMatriculaDni, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
                         .addComponent(labelMetric79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTrabMatriculaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel24Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(labelMetric73, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtAdminAdministradorTelefono5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTrabMatriculaTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(labelMetric77, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(txtAdminAdministradorCorreo5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtTrabMatriculaCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(labelMetric76, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAdminAdministradorCodPostal5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTrabMatriculaCP, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel24Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel24Layout.createSequentialGroup()
                                 .addComponent(labelMetric74, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtAdminAdministradorNombre10, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTrabMatriculaApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel24Layout.createSequentialGroup()
                                 .addComponent(labelMetric72, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtAdminAdministradorDireccion5, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtTrabMatriculaDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel24Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(labelMetric80, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(txtAdminAdministradorCorreo7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtTrabMatriculaCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel24Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                                 .addComponent(labelMetric75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(4, 4, 4)
-                                .addComponent(fecha3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dcMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(19, 19, 19)))))
                 .addGap(27, 27, 27))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel24Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAdminAdministradorNombre11, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtTrabMatriculaDni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel24Layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelMetric78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelMetric79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel24Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelMetric78, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelMetric79, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtTrabMatriculaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
@@ -2644,17 +2649,17 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
                             .addGroup(jPanel24Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(labelMetric74, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtAdminAdministradorNombre10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTrabMatriculaApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelMetric75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fecha3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dcMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAdminAdministradorDireccion5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAdminAdministradorCorreo7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTrabMatriculaDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTrabMatriculaCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2662,9 +2667,9 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
                             .addComponent(labelMetric80, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAdminAdministradorTelefono5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAdminAdministradorCorreo5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAdminAdministradorCodPostal5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTrabMatriculaTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTrabMatriculaCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTrabMatriculaCP, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2677,14 +2682,14 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         jPanel25.setBackground(new java.awt.Color(12, 12, 12));
         jPanel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        buttonAction39.setText("Realizar");
-        buttonAction39.addActionListener(new java.awt.event.ActionListener() {
+        btnTrabMatriculaRealizar.setText("Realizar");
+        btnTrabMatriculaRealizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAction39ActionPerformed(evt);
+                btnTrabMatriculaRealizarActionPerformed(evt);
             }
         });
 
-        buttonAction48.setText("Nueva");
+        btnTrabMatriculaNueva.setText("Nueva");
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -2693,17 +2698,17 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
             .addGroup(jPanel25Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonAction39, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAction48, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTrabMatriculaRealizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTrabMatriculaNueva, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel25Layout.setVerticalGroup(
             jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonAction48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTrabMatriculaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonAction39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTrabMatriculaRealizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -2938,7 +2943,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         panelTrab.add(lblTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 9, -1, -1));
 
         lblHoraTrabajador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblHoraTrabajador.setForeground(new java.awt.Color(255, 204, 0));
+        lblHoraTrabajador.setForeground(new java.awt.Color(255, 255, 255));
         lblHoraTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHoraTrabajador.setText("Hora");
         panelTrab.add(lblHoraTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 2, 140, 30));
@@ -3416,7 +3421,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
     private void buttonAction9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction9ActionPerformed
 try{
-    String fecha = new SimpleDateFormat("yyyy-MM-dd").format(this.fecha.getDate());
+    
         
         conexion cn = new conexion();
         String dir;
@@ -3426,7 +3431,7 @@ try{
         parametro.put("dni", txtAdminClienteDni.getText());
         parametro.put("nombre", txtAdminClienteNombre.getText());
         parametro.put("apellidos", txtAdminClienteApellidos.getText());
-        parametro.put("fechanac", fecha);
+        parametro.put("fechanac", (String) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 7));
         parametro.put("direccion", txtAdminClienteDireccion.getText());
         parametro.put("cp", txtAdminClienteCP.getText());
         parametro.put("ciudad", txtAdminClienteCiudad.getText());
@@ -3625,9 +3630,9 @@ try{
         // TODO add your handling code here:
     }//GEN-LAST:event_listaClientes1MouseClicked
 
-    private void txtAdminAdministradorNombre11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminAdministradorNombre11ActionPerformed
+    private void txtTrabMatriculaDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTrabMatriculaDniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAdminAdministradorNombre11ActionPerformed
+    }//GEN-LAST:event_txtTrabMatriculaDniActionPerformed
 
     private void tablaTrabCobroClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaTrabCobroClienteMouseClicked
         // TODO add your handling code here:
@@ -3939,10 +3944,34 @@ try{
         this.tablaClientes2.setModel(f.listarClientes());
     }//GEN-LAST:event_buttonAction28ActionPerformed
 
-    private void buttonAction39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction39ActionPerformed
-        String fecha = new SimpleDateFormat("yyyy-MM-dd").format(this.fecha1.getDate());
-       // f.añadirCliente(txtAdminAdministradorNombre11.getText(), passwordField2.getText(), txtAdminAdministradorNombre10.getText(), fecha, txtAdminAdministradorDireccion5.getText(), Integer.parseInt(txtAdminAdministradorCodPostal5.getText()), txtAdminAdministradorTelefono7.getText(), Integer.parseInt(txtAdminAdministradorTelefono5.getText()), txtAdminAdministradorCorreo5.getText());
-    }//GEN-LAST:event_buttonAction39ActionPerformed
+    private void btnTrabMatriculaRealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabMatriculaRealizarActionPerformed
+       //Boton trabajador realizar matricula
+        String fechaNacimiento = new SimpleDateFormat("yyyy-MM-dd").format(this.dcMatricula.getDate());
+        String dni = txtTrabMatriculaDni.getText();
+        String nombre = txtTrabMatriculaNombre.getText();
+        String apellidos = txtTrabMatriculaApellidos.getText();
+        String direccion = txtTrabMatriculaDireccion.getText();
+        String ciudad = txtTrabMatriculaCiudad.getText();
+        int codPostal = Integer.parseInt(txtTrabMatriculaCP.getText());
+        int telefono = Integer.parseInt(txtTrabMatriculaTelefono.getText());
+        String correo = txtTrabMatriculaCorreo.getText();
+        
+        DefaultListModel mt = (DefaultListModel) listTrabMatricTarifa.getModel();
+        
+        //String fecha = new SimpleDateFormat("yyyy-MM-dd").format(dc.getDate());
+        String fecha = fechaNacimiento;
+        
+        double precio = Double.parseDouble(lblTrabTotalMatricula.getText());
+        ;
+        
+        if(f.añadirMatricula(dni, nombre, apellidos, fechaNacimiento, direccion, codPostal, ciudad, telefono, correo, fecha, precio, mt)){
+            JOptionPane.showMessageDialog(null, "Matricula realizada con exito");
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al realizar la matricula");
+        }
+        
+       
+    }//GEN-LAST:event_btnTrabMatriculaRealizarActionPerformed
 
     private void buttonAeroRight2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAeroRight2ActionPerformed
         // Trabajador matricula añadir a tarifa
@@ -4027,6 +4056,8 @@ try{
     private org.edisoncor.gui.button.ButtonAction btnTrabClienteClases;
     private org.edisoncor.gui.button.ButtonAction btnTrabClienteMatricula;
     private org.edisoncor.gui.button.ButtonIpod btnTrabIpod;
+    private org.edisoncor.gui.button.ButtonAction btnTrabMatriculaNueva;
+    private org.edisoncor.gui.button.ButtonAction btnTrabMatriculaRealizar;
     private org.edisoncor.gui.button.ButtonCircle btnTrabajadorRetroceso;
     private org.edisoncor.gui.button.ButtonAction buttonAction1;
     private org.edisoncor.gui.button.ButtonAction buttonAction10;
@@ -4050,10 +4081,8 @@ try{
     private org.edisoncor.gui.button.ButtonAction buttonAction32;
     private org.edisoncor.gui.button.ButtonAction buttonAction33;
     private org.edisoncor.gui.button.ButtonAction buttonAction34;
-    private org.edisoncor.gui.button.ButtonAction buttonAction39;
     private org.edisoncor.gui.button.ButtonAction buttonAction4;
     private org.edisoncor.gui.button.ButtonAction buttonAction46;
-    private org.edisoncor.gui.button.ButtonAction buttonAction48;
     private org.edisoncor.gui.button.ButtonAction buttonAction5;
     private org.edisoncor.gui.button.ButtonAction buttonAction6;
     private org.edisoncor.gui.button.ButtonAction buttonAction7;
@@ -4065,12 +4094,12 @@ try{
     private org.edisoncor.gui.button.ButtonIcon buttonIcon1;
     private org.edisoncor.gui.comboBox.ComboBoxRound cmbAdminClases;
     private org.edisoncor.gui.comboBox.ComboBoxRound cmbAdminMaquinas;
+    private com.toedter.calendar.JDateChooser dcMatricula;
     private javax.swing.JDialog diaAdminClienteTarifa;
     private javax.swing.JDialog diaAdminMaquinaMonitor;
     private org.edisoncor.gui.label.LabelTask dniTrabajador;
     private com.toedter.calendar.JDateChooser fecha;
     private com.toedter.calendar.JDateChooser fecha1;
-    private com.toedter.calendar.JDateChooser fecha3;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -4240,7 +4269,6 @@ try{
     private javax.swing.JPanel panelTrabCobro;
     private javax.swing.JPanel panelTrabMatricula;
     private javax.swing.JPanel panelTrabPerfil;
-    private org.edisoncor.gui.passwordField.PasswordField passwordField2;
     private org.edisoncor.gui.tabbedPane.TabbedPaneTask tabbedPaneTask1;
     private javax.swing.JTable tablaClases;
     private javax.swing.JTable tablaClientes;
@@ -4256,29 +4284,22 @@ try{
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorApellidos8;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorCodPostal;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorCodPostal4;
-    private org.edisoncor.gui.textField.TextField txtAdminAdministradorCodPostal5;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorCodPostal6;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorContraseña;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorCorreo;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorCorreo4;
-    private org.edisoncor.gui.textField.TextField txtAdminAdministradorCorreo5;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorCorreo6;
-    private org.edisoncor.gui.textField.TextField txtAdminAdministradorCorreo7;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorDireccion;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorDireccion4;
-    private org.edisoncor.gui.textField.TextField txtAdminAdministradorDireccion5;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorDireccion6;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorDni;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre;
-    private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre10;
-    private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre11;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre16;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre17;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre8;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre9;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorTelefono;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorTelefono4;
-    private org.edisoncor.gui.textField.TextField txtAdminAdministradorTelefono5;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorTelefono6;
     private org.edisoncor.gui.textField.TextField txtAdminClasesNombre;
     private org.edisoncor.gui.textField.TextField txtAdminClasesPrecio;
@@ -4306,6 +4327,14 @@ try{
     private org.edisoncor.gui.textField.TextField txtMonitorDni;
     private org.edisoncor.gui.textField.TextField txtMonitorNombre;
     private org.edisoncor.gui.textField.TextField txtMonitorTelefono;
+    private org.edisoncor.gui.textField.TextField txtTrabMatriculaApellidos;
+    private org.edisoncor.gui.textField.TextField txtTrabMatriculaCP;
+    private org.edisoncor.gui.textField.TextField txtTrabMatriculaCiudad;
+    private org.edisoncor.gui.textField.TextField txtTrabMatriculaCorreo;
+    private org.edisoncor.gui.textField.TextField txtTrabMatriculaDireccion;
+    private org.edisoncor.gui.textField.TextField txtTrabMatriculaDni;
+    private org.edisoncor.gui.textField.TextField txtTrabMatriculaNombre;
+    private org.edisoncor.gui.textField.TextField txtTrabMatriculaTelefono;
     private org.edisoncor.gui.textField.TextFieldRound txtnombre;
     private org.edisoncor.gui.textField.TextFieldRound txtnombre1;
     // End of variables declaration//GEN-END:variables
