@@ -88,6 +88,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
         
         this.txtnombre.getDocument().addDocumentListener(this);
+        this.txtnombre1.getDocument().addDocumentListener(this);
         
         h1 = new Thread(this);
         h1.start();
@@ -148,12 +149,18 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     public void insertUpdate(DocumentEvent e) {
         String nombre= this.txtnombre.getText();
         this.tablaClientes.setModel(f.listarClientesLetra(nombre));
+        
+        String nombre1 = this.txtnombre1.getText();
+        this.tablaClientes2.setModel(f.listarClientesLetra(nombre1));
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
         String nombre = this.txtnombre.getText();
         this.tablaClientes.setModel(f.listarClientesLetra(nombre));
+        
+        String nombre1 = this.txtnombre1.getText();
+        this.tablaClientes2.setModel(f.listarClientesLetra(nombre1));
     }
 
     @Override
@@ -193,7 +200,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         buttonAeroRight1 = new org.edisoncor.gui.button.ButtonAeroRight();
         buttonAeroLeft1 = new org.edisoncor.gui.button.ButtonAeroLeft();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        listaclases2 = new javax.swing.JList<>();
         labelMetric44 = new org.edisoncor.gui.label.LabelMetric();
         labelMetric45 = new org.edisoncor.gui.label.LabelMetric();
         buttonAction19 = new org.edisoncor.gui.button.ButtonAction();
@@ -382,9 +389,6 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         jPanel19 = new javax.swing.JPanel();
         buttonAction21 = new org.edisoncor.gui.button.ButtonAction();
         buttonAction25 = new org.edisoncor.gui.button.ButtonAction();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        labelMetric97 = new org.edisoncor.gui.label.LabelMetric();
         panelTrabCliente = new javax.swing.JPanel();
         labelTask6 = new org.edisoncor.gui.label.LabelTask();
         jPanel20 = new javax.swing.JPanel();
@@ -489,17 +493,22 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         buttonAeroRight1.setForeground(new java.awt.Color(0, 0, 0));
         buttonAeroRight1.setText(">>");
         buttonAeroRight1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        buttonAeroRight1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAeroRight1ActionPerformed(evt);
+            }
+        });
 
         buttonAeroLeft1.setForeground(new java.awt.Color(0, 0, 0));
         buttonAeroLeft1.setText("<<");
         buttonAeroLeft1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        listaclases2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane9.setViewportView(jList2);
+        jScrollPane9.setViewportView(listaclases2);
 
         labelMetric44.setText("Clases:");
 
@@ -2139,24 +2148,6 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
         panelTrabPerfil.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane12.setViewportView(jTable1);
-
-        panelTrabPerfil.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 360, 130));
-
-        labelMetric97.setText("Matriculas:");
-        panelTrabPerfil.add(labelMetric97, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, -1, -1));
-
         panelTrab.add(panelTrabPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, -1, -1));
 
         panelTrabCliente.setBackground(new java.awt.Color(0, 0, 0));
@@ -2652,7 +2643,6 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
                             .addComponent(txtTrabMatriculaApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelMetric75, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dcMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3265,6 +3255,9 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         diaAdminClienteTarifa.setLocationRelativeTo(panelPrincipal);
         diaAdminClienteTarifa.setSize(387, 315);
         diaAdminClienteTarifa.setVisible(true);
+        
+        this.listaclases2.setModel(f.listTodasClases());
+        this.jList1.setModel(f.listClases((String) this.tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
     }//GEN-LAST:event_buttonAction10ActionPerformed
 
     private void buttonIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIcon1ActionPerformed
@@ -3576,11 +3569,44 @@ try{
     }//GEN-LAST:event_buttonAction29ActionPerformed
 
     private void btnTrabClienteMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabClienteMatriculaActionPerformed
-        // TODO add your handling code here:
+         try{
+    
+        
+        conexion cn = new conexion();
+        String dir;
+        dir = "src/reporte/matriculaCli.jrxml";
+        Map parametro = new HashMap();
+        parametro.put("parameter1", txtAdminAdministradorNombre9.getText());
+        parametro.put("dni", txtAdminAdministradorNombre9.getText());
+        parametro.put("nombre", txtAdminAdministradorApellidos8.getText());
+        parametro.put("apellidos", txtAdminAdministradorNombre8.getText());
+        parametro.put("fechanac", (String) tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 7));
+        parametro.put("direccion", txtAdminAdministradorDireccion4.getText());
+        parametro.put("cp", txtAdminAdministradorCodPostal4.getText());
+        parametro.put("ciudad", txtAdminAdministradorApellidos7.getText());
+        parametro.put("telefono", txtAdminAdministradorTelefono4.getText());
+        
+
+        JasperReport reporteJasper = JasperCompileManager.compileReport(dir);
+        JasperPrint mostrarReporte = JasperFillManager.fillReport(reporteJasper, parametro, cn.getConexion());
+        JasperViewer visor = new JasperViewer(mostrarReporte, false);
+        visor.setVisible(true);
+       
+        }catch(JRException ex){
+            Logger.getLogger(interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }            
+       
+
     }//GEN-LAST:event_btnTrabClienteMatriculaActionPerformed
 
     private void btnTrabClienteClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabClienteClasesActionPerformed
-        // TODO add your handling code here:
+        diaAdminClienteTarifa.setLocationRelativeTo(panelPrincipal);
+        diaAdminClienteTarifa.setSize(387, 315);
+        diaAdminClienteTarifa.setVisible(true);
+        
+        this.listaclases2.setModel(f.listTodasClases());
+        this.jList1.setModel(f.listClases((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0)));
     }//GEN-LAST:event_btnTrabClienteClasesActionPerformed
 
     private void txtAdminAdministradorDireccion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminAdministradorDireccion4ActionPerformed
@@ -3604,6 +3630,8 @@ try{
         this.txtAdminAdministradorCodPostal4.setText((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 5));
         this.txtAdminAdministradorTelefono4.setText((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 6));
         this.txtAdminAdministradorCorreo4.setText((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 8));
+        
+        this.listaClientes1.setModel(f.listClases((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0)));
     }//GEN-LAST:event_tablaClientes2MouseClicked
 
     private void tablaClientes2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaClientes2KeyPressed
@@ -3960,9 +3988,12 @@ try{
         String correo = txtTrabMatriculaCorreo.getText();
         
         DefaultListModel mt = (DefaultListModel) listTrabMatricTarifa.getModel();
+        Calendar calendar = new GregorianCalendar();
+        JDateChooser dc = new JDateChooser();
+        dc.setCalendar(calendar);
         
-        //String fecha = new SimpleDateFormat("yyyy-MM-dd").format(dc.getDate());
-        String fecha = fechaNacimiento;
+        String fecha = new SimpleDateFormat("yyyy-MM-dd").format(dc.getDate());
+//        String fecha = fechaNacimiento;
         
         double precio = Double.parseDouble(lblTrabTotalMatricula.getText());
         ;
@@ -4011,6 +4042,19 @@ try{
             JOptionPane.showMessageDialog(null, "Selecciona alguna clase");
         }
     }//GEN-LAST:event_buttonAeroLeft2ActionPerformed
+
+    private void buttonAeroRight1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAeroRight1ActionPerformed
+         if(listTrabMatricTarifa.getSelectedIndex() != -1){
+            DefaultListModel mt = (DefaultListModel) jList1.getModel();
+            mt.addElement(listaclases2.getSelectedValue());
+            
+            DefaultListModel mc = (DefaultListModel) jList1.getModel();
+            mc.remove(listaclases2.getSelectedIndex());
+              
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecciona alguna clase");
+        }
+    }//GEN-LAST:event_buttonAeroRight1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4110,7 +4154,6 @@ try{
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -4139,7 +4182,6 @@ try{
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
@@ -4155,7 +4197,6 @@ try{
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
     private org.edisoncor.gui.label.LabelMetric labelMetric1;
     private org.edisoncor.gui.label.LabelMetric labelMetric10;
     private org.edisoncor.gui.label.LabelMetric labelMetric11;
@@ -4242,7 +4283,6 @@ try{
     private org.edisoncor.gui.label.LabelMetric labelMetric94;
     private org.edisoncor.gui.label.LabelMetric labelMetric95;
     private org.edisoncor.gui.label.LabelMetric labelMetric96;
-    private org.edisoncor.gui.label.LabelMetric labelMetric97;
     private org.edisoncor.gui.label.LabelTask labelTask1;
     private org.edisoncor.gui.label.LabelTask labelTask2;
     private org.edisoncor.gui.label.LabelTask labelTask3;
@@ -4260,6 +4300,7 @@ try{
     private javax.swing.JList<String> listaClientes;
     private javax.swing.JList<String> listaClientes1;
     private javax.swing.JList<String> listaTrabajadores;
+    private javax.swing.JList<String> listaclases2;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelAdminAdmin;
     private javax.swing.JPanel panelAdminCliente;

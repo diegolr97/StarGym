@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9af64070-afc2-4d03-805e-252d8011b362">
-	<property name="ireport.zoom" value="2.3579476910000063"/>
-	<property name="ireport.x" value="161"/>
-	<property name="ireport.y" value="572"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="parameter1" class="java.lang.String"/>
 	<parameter name="dni" class="java.lang.String"/>
 	<parameter name="nombre" class="java.lang.String"/>
@@ -44,16 +44,16 @@ WHERE cliente.`dni` = $P{parameter1}]]>
 				<reportElement x="0" y="0" width="555" height="126" backcolor="#000000" uuid="5d46ef5d-faa4-4711-8ff3-20b1fbf47a80"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="17" y="21" width="300" height="48" forecolor="#FFCC00" uuid="6a3dc13a-6381-4609-b465-88f8797f2130"/>
+				<reportElement x="17" y="21" width="300" height="75" forecolor="#FFCC00" uuid="6a3dc13a-6381-4609-b465-88f8797f2130"/>
 				<textElement verticalAlignment="Top">
-					<font fontName="hooge 05_53" size="50"/>
+					<font fontName="SansSerif" size="50"/>
 				</textElement>
 				<text><![CDATA[Star GYM]]></text>
 			</staticText>
 			<image>
 				<reportElement x="454" y="11" width="85" height="85" uuid="c0a8686c-001a-486b-9580-0499bcf50d9e"/>
 				<box topPadding="0"/>
-				<imageExpression><![CDATA["C:\\Users\\Manuel\\Documents\\NetBeansProjects\\StarGym\\src\\imagenes\\logo205.png"]]></imageExpression>
+				<imageExpression><![CDATA["src/imagenes/logo.png"]]></imageExpression>
 			</image>
 			<rectangle>
 				<reportElement x="0" y="106" width="555" height="22" forecolor="#000000" backcolor="#00CCFF" uuid="6f58aea3-31a0-4210-9435-cd54cd41fe41"/>
