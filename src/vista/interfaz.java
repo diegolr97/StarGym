@@ -161,6 +161,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         
         String nombre1 = this.txtnombre1.getText();
         this.tablaClientes2.setModel(f.listarClientesLetra(nombre1));
+        
+        
     }
 
     @Override
@@ -471,6 +473,9 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         tablaTrabCobroMensual = new javax.swing.JTable();
         labelMetric88 = new org.edisoncor.gui.label.LabelMetric();
         buttonAction46 = new org.edisoncor.gui.button.ButtonAction();
+        labelMetric81 = new org.edisoncor.gui.label.LabelMetric();
+        txtnombre2 = new org.edisoncor.gui.textField.TextFieldRound();
+        comboBoxRectIcon1 = new org.edisoncor.gui.comboBox.ComboBoxRectIcon();
         jLabel5 = new javax.swing.JLabel();
         labelMetric84 = new org.edisoncor.gui.label.LabelMetric();
         Cobro = new org.edisoncor.gui.label.LabelTask();
@@ -2833,7 +2838,6 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
         jPanel29.setBackground(new java.awt.Color(0, 0, 0));
         jPanel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
-        jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaTrabCobroCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2858,12 +2862,9 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         });
         jScrollPane18.setViewportView(tablaTrabCobroCliente);
 
-        jPanel29.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 661, 157));
-
         labelMetric83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelMetric83.setText("Clientes");
         labelMetric83.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jPanel29.add(labelMetric83, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 660, -1));
 
         tablaTrabCobroMensual.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2888,15 +2889,66 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         });
         jScrollPane20.setViewportView(tablaTrabCobroMensual);
 
-        jPanel29.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 661, 157));
-
         labelMetric88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelMetric88.setText("Mensualidades");
         labelMetric88.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jPanel29.add(labelMetric88, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 660, -1));
 
         buttonAction46.setText("Pagar");
-        jPanel29.add(buttonAction46, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, -1, -1));
+
+        labelMetric81.setText("Buscar:");
+        labelMetric81.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        comboBoxRectIcon1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dni", "Nombre", "Apellidos" }));
+
+        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+        jPanel29.setLayout(jPanel29Layout);
+        jPanel29Layout.setHorizontalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addGap(689, 689, 689)
+                .addComponent(buttonAction46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel29Layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(labelMetric81, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboBoxRectIcon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel29Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelMetric83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane18))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric88, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel29Layout.setVerticalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelMetric83, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric88, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelMetric81, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboBoxRectIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(buttonAction46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
+        );
 
         jPanel26.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 820, 440));
 
@@ -4141,6 +4193,7 @@ try{
     private org.edisoncor.gui.button.ButtonIcon buttonIcon1;
     private org.edisoncor.gui.comboBox.ComboBoxRound cmbAdminClases;
     private org.edisoncor.gui.comboBox.ComboBoxRound cmbAdminMaquinas;
+    private org.edisoncor.gui.comboBox.ComboBoxRectIcon comboBoxRectIcon1;
     private com.toedter.calendar.JDateChooser dcMatricula;
     private javax.swing.JDialog diaAdminClienteTarifa;
     private javax.swing.JDialog diaAdminMaquinaMonitor;
@@ -4270,6 +4323,7 @@ try{
     private org.edisoncor.gui.label.LabelMetric labelMetric79;
     private org.edisoncor.gui.label.LabelMetric labelMetric8;
     private org.edisoncor.gui.label.LabelMetric labelMetric80;
+    private org.edisoncor.gui.label.LabelMetric labelMetric81;
     private org.edisoncor.gui.label.LabelMetric labelMetric83;
     private org.edisoncor.gui.label.LabelMetric labelMetric84;
     private org.edisoncor.gui.label.LabelMetric labelMetric87;
@@ -4381,6 +4435,7 @@ try{
     private org.edisoncor.gui.textField.TextField txtTrabMatriculaTelefono;
     private org.edisoncor.gui.textField.TextFieldRound txtnombre;
     private org.edisoncor.gui.textField.TextFieldRound txtnombre1;
+    private org.edisoncor.gui.textField.TextFieldRound txtnombre2;
     // End of variables declaration//GEN-END:variables
 
     
