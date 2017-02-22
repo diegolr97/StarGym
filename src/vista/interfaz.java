@@ -3009,6 +3009,9 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         }else{
            JOptionPane.showMessageDialog(null, "Datos incorrectos");
         }
+        
+        txtLoguinUsuario.setText("");
+        txtLoguinContraseña.setText("");
     }//GEN-LAST:event_btnLoguinEntrarActionPerformed
 
     private void btnAdminIpodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminIpodActionPerformed
