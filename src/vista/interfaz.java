@@ -3359,12 +3359,17 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
     private void buttonAction10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction10ActionPerformed
         //Admin Cliente boton para añadir o quitar clases de la matricula
-        diaAdminClienteTarifa.setLocationRelativeTo(panelPrincipal);
-        diaAdminClienteTarifa.setSize(387, 315);
-        diaAdminClienteTarifa.setVisible(true);
+        if(tablaClientes.getSelectedRow() > -1){
+            diaAdminClienteTarifa.setLocationRelativeTo(panelPrincipal);
+            diaAdminClienteTarifa.setSize(387, 315);
+            diaAdminClienteTarifa.setVisible(true);
+
+            this.listClasesNo.setModel(f.listClasesNo((String) this.tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
+            this.listMiTarifa.setModel(f.listClases((String) this.tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecciona un cliente");
+        }
         
-        this.listClasesNo.setModel(f.listClasesNo((String) this.tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
-        this.listMiTarifa.setModel(f.listClases((String) this.tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
     }//GEN-LAST:event_buttonAction10ActionPerformed
 
     private void buttonIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIcon1ActionPerformed
@@ -3710,12 +3715,18 @@ try{
     }//GEN-LAST:event_btnTrabClienteMatriculaActionPerformed
 
     private void btnTrabClienteClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabClienteClasesActionPerformed
-        diaAdminClienteTarifa.setLocationRelativeTo(panelPrincipal);
-        diaAdminClienteTarifa.setSize(387, 315);
-        diaAdminClienteTarifa.setVisible(true);
+        //Admin Cliente boton para añadir o quitar clases de la matricula
+        if(tablaClientes2.getSelectedRow() > -1){
+            diaAdminClienteTarifa.setLocationRelativeTo(panelPrincipal);
+            diaAdminClienteTarifa.setSize(387, 315);
+            diaAdminClienteTarifa.setVisible(true);
+
+            this.listClasesNo.setModel(f.listClasesNo((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0)));
+            this.listMiTarifa.setModel(f.listClases((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0)));
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecciona un cliente");
+        }
         
-        this.listClasesNo.setModel(f.listTodasClases());
-        this.listMiTarifa.setModel(f.listClases((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0)));
     }//GEN-LAST:event_btnTrabClienteClasesActionPerformed
 
     private void txtAdminAdministradorDireccion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminAdministradorDireccion4ActionPerformed
@@ -4246,15 +4257,17 @@ try{
         //Modificamos la tarifa del cliente
         if(JOptionPane.showConfirmDialog(null, "¿Seguro de modificar la Tarifa?") == 0){
             //Si estamos en el panel trabajador usaremos el metodo recogiendo del txt del panel trbajador si no recogeremos del panel administrador
-            if(lblTipoTrabajador.getText().equals("Trabajador")){
+            if(panelTrabCliente.isShowing()){
                 //Metodo para modificar tarifa
+                System.out.println("Showing Trabajador");
                 if(f.modificarTarifa(txtTrabClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
                     JOptionPane.showMessageDialog(null, "Tarifa modificada");
                     this.diaAdminClienteTarifa.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "Error al modificar la tarifa");
                 }
-            }else if(lblTipoAdministrador.equals("Administrador")){
+            }else if(panelAdminCliente.isShowing()){
+                System.out.println("Showing Administrador");
                 if(f.modificarTarifa(txtAdminClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
                     JOptionPane.showMessageDialog(null, "Tarifa modificada");
                     this.diaAdminClienteTarifa.dispose();
