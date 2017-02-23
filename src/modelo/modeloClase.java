@@ -277,7 +277,7 @@ public class modeloClase extends conexion implements interfazClase {
         
             //Eliminamos las tarifas con el idMatricula recogido previamente
             String q1 = "DELETE FROM tarifa WHERE idMatricula = " + maximo;
-            PreparedStatement pstm1 = this.getConexion().prepareStatement(q);
+            PreparedStatement pstm1 = this.getConexion().prepareStatement(q1);
             pstm1.execute();
             pstm1.close();
             
