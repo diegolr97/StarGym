@@ -90,7 +90,10 @@ public class fachada {
     public DefaultTableModel listarCobros(String dni){
         return cliente.listarCobros(dni);
     }
-     
+    
+    public boolean insertarMensualidad(String dni, String fecha, int idMatricula){
+        return cliente.insertarMensualidad(dni, fecha, idMatricula);
+    }
      //-------Aministradores---------//
      
     private interfazAdministrador admin = new modeloAdministrador();

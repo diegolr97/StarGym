@@ -2944,6 +2944,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric88.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
         buttonAction46.setText("Pagar");
+        buttonAction46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAction46ActionPerformed(evt);
+            }
+        });
 
         labelMetric81.setText("Buscar:");
         labelMetric81.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -4151,7 +4156,7 @@ try{
         Calendar calendar = new GregorianCalendar();
         JDateChooser dc = new JDateChooser();
         dc.setCalendar(calendar);
-        //fecha del cliente
+        
         String fecha = new SimpleDateFormat("yyyy-MM-dd").format(dc.getDate());
 //        String fecha = fechaNacimiento;
         double precio = Double.parseDouble(lblTrabTotalMatricula.getText());
@@ -4290,6 +4295,32 @@ try{
        txtTrabMatriculaCorreo.setText("");
        txtTrabMatriculaCP.setText("");
     }//GEN-LAST:event_btnTrabMatriculaNuevaActionPerformed
+
+    private void buttonAction46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction46ActionPerformed
+        //Boton pagar mensualidad
+        
+        String dni = (String) this.tablaTrabCobroCliente.getValueAt(tablaTrabCobroCliente.getSelectedRow(), 0);
+        int idMatricula = Integer.parseInt((String) this.tablaTrabCobroMensual.getValueAt(tablaTrabCobroMensual.getSelectedRow(), 1));
+        
+        //fecha del sistema
+        Calendar calendar = new GregorianCalendar();
+        JDateChooser dc = new JDateChooser();
+        dc.setCalendar(calendar);
+        
+        String fecha = new SimpleDateFormat("yyyy-MM-dd").format(dc.getDate());
+        
+        if(JOptionPane.showConfirmDialog(null, "¿Realizar pago mensual?") == 0){
+            if(f.insertarMensualidad(dni, fecha, idMatricula)){
+                tablaTrabCobroMensual.setModel(f.listarCobros(dni));
+                JOptionPane.showMessageDialog(null, "Has pagado este mes");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al insertar mensualidad");
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_buttonAction46ActionPerformed
 
     /**
      * @param args the command line arguments

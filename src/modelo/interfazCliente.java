@@ -31,6 +31,7 @@ public interface interfazCliente {
     public DefaultTableModel listarClientesCobros();
     public DefaultTableModel listarClientesNombre(String nombre);
     public DefaultTableModel listarCobros(String dni);
+    public boolean insertarMensualidad(String dni, String fecha, int idMatricula);
         
     
       

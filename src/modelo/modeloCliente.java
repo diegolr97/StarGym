@@ -465,6 +465,35 @@ public class modeloCliente extends conexion implements interfazCliente {
         
     }
       
+    @Override  
+    public boolean insertarMensualidad(String dni, String fecha, int idMatricula){
+        
+        Float precio = null;
+        
+        try {
+            //Cogemos el precio de la mensualidad
+            String q = "select sum(precio) mensual from cliente c, matricula m, tarifa t, clase cla where c.dni = m.idCliente and m.idMatricula = t.idMatricula and t.idClase = cla.idClase and c.dni = '" + dni + "'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while(res.next()){
+                precio = res.getFloat("mensual");
+            }
+            
+            //Insertamos la mensualidad
+            String q1 = "INSERT INTO mensualidad VALUES ('" + idMatricula + "', '" + fecha + "', '" + precio + "')";
+            System.out.println("Id Matricula: " + idMatricula + " fecha: " + fecha + " precio: " + precio);
+            PreparedStatement pstm1 = this.getConexion().prepareStatement(q1);
+            pstm1.execute();
+            pstm1.close();
+            
+            return true;
+            
+        } catch (Exception e) {
+            Logger.getLogger(modeloCliente.class.getName()).log(Level.SEVERE, null, e);
+            return false;
+        }
+    }
+      
       @Override
       public DefaultTableModel listarCobros(String dni)
     {
@@ -511,8 +540,8 @@ public class modeloCliente extends conexion implements interfazCliente {
         return tablemodel;
         
     }
-        
-    }
+      
+}
       
       
 

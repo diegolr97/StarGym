@@ -4524,6 +4524,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Pagar"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAction46ActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="org.edisoncor.gui.label.LabelMetric" name="labelMetric81">
                           <Properties>
