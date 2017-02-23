@@ -4084,7 +4084,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         //Boton admin admin eliminar
         if (listaAdmin.getSelectedIndex() > -1) {
             
-            if(txtAdminAdministradorDni.getText() != lblAdministrador.getText()){
+            if(!txtAdminAdministradorDni.getText().equals(lblAdministrador.getText())){
                 if(JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar?")==0){
 
                     f.eliminarEmpleado(txtAdminAdministradorDni.getText());
