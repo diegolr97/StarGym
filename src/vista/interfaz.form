@@ -2671,7 +2671,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="org.edisoncor.gui.label.LabelMetric" name="labelMetric3">
+            <Component class="org.edisoncor.gui.label.LabelMetric" name="lblTipoAdministrador">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Administrador:"/>
               </Properties>

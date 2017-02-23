@@ -396,7 +396,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         cmbAdminClases = new org.edisoncor.gui.comboBox.ComboBoxRound();
         labelTask4 = new org.edisoncor.gui.label.LabelTask();
         btnAdminRetroceso = new org.edisoncor.gui.button.ButtonCircle();
-        labelMetric3 = new org.edisoncor.gui.label.LabelMetric();
+        lblTipoAdministrador = new org.edisoncor.gui.label.LabelMetric();
         lblAdministrador = new org.edisoncor.gui.label.LabelMetric();
         lblHoraAdmin = new javax.swing.JLabel();
         panelTrab = new javax.swing.JPanel();
@@ -1989,8 +1989,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         });
         panelAdmin.add(btnAdminRetroceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 6, 20, 20));
 
-        labelMetric3.setText("Administrador:");
-        panelAdmin.add(labelMetric3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 9, -1, -1));
+        lblTipoAdministrador.setText("Administrador:");
+        panelAdmin.add(lblTipoAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 9, -1, -1));
 
         lblAdministrador.setText("xxxxxxxxx");
         panelAdmin.add(lblAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 9, -1, -1));
@@ -4189,7 +4189,7 @@ try{
                 }else{
                     JOptionPane.showMessageDialog(null, "Error al modificar la tarifa");
                 }
-            }else{
+            }else if(lblTipoAdministrador.equals("Administrador")){
                 if(f.modificarTarifa(txtAdminClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
                     JOptionPane.showMessageDialog(null, "Tarifa modificada");
                 }else{
@@ -4363,7 +4363,6 @@ try{
     private org.edisoncor.gui.label.LabelMetric labelMetric27;
     private org.edisoncor.gui.label.LabelMetric labelMetric28;
     private org.edisoncor.gui.label.LabelMetric labelMetric29;
-    private org.edisoncor.gui.label.LabelMetric labelMetric3;
     private org.edisoncor.gui.label.LabelMetric labelMetric30;
     private org.edisoncor.gui.label.LabelMetric labelMetric31;
     private org.edisoncor.gui.label.LabelMetric labelMetric32;
@@ -4436,6 +4435,7 @@ try{
     private org.edisoncor.gui.label.LabelMetric lblAdministrador;
     private javax.swing.JLabel lblHoraAdmin;
     private javax.swing.JLabel lblHoraTrabajador;
+    private org.edisoncor.gui.label.LabelMetric lblTipoAdministrador;
     private org.edisoncor.gui.label.LabelMetric lblTipoTrabajador;
     private org.edisoncor.gui.label.LabelMetric lblTrabTotalMatricula;
     private org.edisoncor.gui.label.LabelMetric lblTrabajador;
