@@ -469,6 +469,7 @@ public class modeloCliente extends conexion implements interfazCliente {
     public boolean insertarMensualidad(String dni, String fecha, int idMatricula){
         
         Float precio = null;
+        System.out.println("Metodo mensualidad");
         
         try {
             //Cogemos el precio de la mensualidad
@@ -480,7 +481,7 @@ public class modeloCliente extends conexion implements interfazCliente {
             }
             
             //Insertamos la mensualidad
-            String q1 = "INSERT INTO mensualidad VALUES ('" + idMatricula + "', '" + fecha + "', '" + precio + "')";
+            String q1 = "INSERT INTO mensualidad (idMatricula, fecha, coste) VALUES ('" + idMatricula + "', '" + fecha + "', '" + precio + "')";
             System.out.println("Id Matricula: " + idMatricula + " fecha: " + fecha + " precio: " + precio);
             PreparedStatement pstm1 = this.getConexion().prepareStatement(q1);
             pstm1.execute();
