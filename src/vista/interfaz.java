@@ -4083,20 +4083,26 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private void buttonAction5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction5ActionPerformed
         //Boton admin admin eliminar
         if (listaAdmin.getSelectedIndex() > -1) {
-            if(JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar?")==0){
             
-        f.eliminarEmpleado(txtAdminAdministradorDni.getText());
-        this.listaAdmin.setModel(f.listAdmin());
-        
-        txtAdminAdministradorDni.setText("");
-        txtAdminAdministradorNombre.setText("");
-        txtAdminAdministradorContraseña.setText("");
-        txtAdminAdministradorApellidos.setText("");
-        txtAdminAdministradorDireccion.setText("");
-        txtAdminAdministradorCodPostal.setText("");
-        txtAdminAdministradorTelefono.setText("");
-        txtAdminAdministradorCorreo.setText("");
-            }
+            if(txtAdminAdministradorDni.getText() != lblAdministrador.getText()){
+                if(JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar?")==0){
+
+                    f.eliminarEmpleado(txtAdminAdministradorDni.getText());
+                    this.listaAdmin.setModel(f.listAdmin());
+
+                    txtAdminAdministradorDni.setText("");
+                    txtAdminAdministradorNombre.setText("");
+                    txtAdminAdministradorContraseña.setText("");
+                    txtAdminAdministradorApellidos.setText("");
+                    txtAdminAdministradorDireccion.setText("");
+                    txtAdminAdministradorCodPostal.setText("");
+                    txtAdminAdministradorTelefono.setText("");
+                    txtAdminAdministradorCorreo.setText("");
+                    JOptionPane.showMessageDialog(null, "Eliminacion realizada");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "No puedes eliminarte a ti mismo");
+            }    
         }else{
             JOptionPane.showMessageDialog(null, "Selecciona algun administrador de la lista");
         }
@@ -4541,7 +4547,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
     private void btnGuardarRegistroAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarRegistroAdminActionPerformed
         //Guardar registro admin
-        if(!txtRegistroDni.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtRegistroNombre.getText().isEmpty() && !txtRegistroApellidos.getText().isEmpty() && !txtRegistroDireccion.getText().isEmpty() && !txtRegistroTelefono.getText().isEmpty() && !txtRegistroCorreo.getText().isEmpty() && !txtRegistroCP.getText().isEmpty()){
+        if(!txtRegistroDni.getText().isEmpty() && !txtRegistroContraseña.getText().isEmpty() && !txtRegistroNombre.getText().isEmpty() && !txtRegistroApellidos.getText().isEmpty() && !txtRegistroDireccion.getText().isEmpty() && !txtRegistroTelefono.getText().isEmpty() && !txtRegistroCorreo.getText().isEmpty() && !txtRegistroCP.getText().isEmpty()){
         if(c.comprobacion(txtRegistroTelefono.getText())  && c.comprobacion(txtRegistroCP.getText())){
             if(txtRegistroDni.getText().length()<10 && txtRegistroDni.getText().length()>8 && txtRegistroTelefono.getText().length()<10 && txtRegistroTelefono.getText().length()>8 && txtRegistroCP.getText().length()<6 && txtRegistroCP.getText().length()>4){
         
