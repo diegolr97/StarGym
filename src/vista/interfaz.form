@@ -1543,6 +1543,7 @@
                         </Component>
                         <Component class="org.edisoncor.gui.textField.TextField" name="txtAdminClienteDni">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
                             </Property>
@@ -2950,6 +2951,9 @@
                           <Font name="Arial" size="14" style="1"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAdminAdministradorDireccion6ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="org.edisoncor.gui.label.LabelMetric" name="labelMetric92">
                       <Properties>
@@ -3070,7 +3074,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="70" y="430" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="70" y="430" width="140" height="-1"/>
                     </Constraint>
                   </Constraints>
 
@@ -3080,9 +3084,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="buttonAction21" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="buttonAction25" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="12" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3090,10 +3092,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="buttonAction21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="buttonAction25" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="buttonAction21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -3107,11 +3106,6 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAction21ActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction25">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
-                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -3593,6 +3587,7 @@
                         </Component>
                         <Component class="org.edisoncor.gui.textField.TextField" name="txtTrabClienteDni">
                           <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
                             </Property>
@@ -4188,6 +4183,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Nueva"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTrabMatriculaNuevaActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>

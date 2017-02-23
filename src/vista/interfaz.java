@@ -425,7 +425,6 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         jLabel3 = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         buttonAction21 = new org.edisoncor.gui.button.ButtonAction();
-        buttonAction25 = new org.edisoncor.gui.button.ButtonAction();
         panelTrabCliente = new javax.swing.JPanel();
         labelTask6 = new org.edisoncor.gui.label.LabelTask();
         jPanel20 = new javax.swing.JPanel();
@@ -1235,6 +1234,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric21.setText("Dni:");
         labelMetric21.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
+        txtAdminClienteDni.setEditable(false);
         txtAdminClienteDni.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtAdminClienteDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2051,6 +2051,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         txtAdminAdministradorNombre16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         txtAdminAdministradorDireccion6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtAdminAdministradorDireccion6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAdminAdministradorDireccion6ActionPerformed(evt);
+            }
+        });
 
         labelMetric92.setText("Apellidos:");
         labelMetric92.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -2173,8 +2178,6 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
             }
         });
 
-        buttonAction25.setText("Guardar");
-
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
@@ -2182,21 +2185,17 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(buttonAction21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonAction25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonAction21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAction25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(buttonAction21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelTrabPerfil.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
+        panelTrabPerfil.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 140, -1));
 
         panelTrab.add(panelTrabPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, -1, -1));
 
@@ -2325,6 +2324,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric66.setText("Dni:");
         labelMetric66.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
+        txtTrabClienteDni.setEditable(false);
         txtTrabClienteDni.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtTrabClienteDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2730,6 +2730,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         });
 
         btnTrabMatriculaNueva.setText("Nueva");
+        btnTrabMatriculaNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTrabMatriculaNuevaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
         jPanel25.setLayout(jPanel25Layout);
@@ -3823,6 +3828,7 @@ try{
         //boton admin admin modificar
         if(!txtAdminAdministradorDni.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtAdminAdministradorNombre.getText().isEmpty() && !txtAdminAdministradorApellidos.getText().isEmpty() && !txtAdminAdministradorDireccion.getText().isEmpty() && !txtAdminAdministradorTelefono.getText().isEmpty() && !txtAdminAdministradorCorreo.getText().isEmpty() && !txtAdminAdministradorCodPostal.getText().isEmpty()){
         if(c.comprobacion(txtAdminAdministradorTelefono.getText()) && c.comprobacion(txtAdminAdministradorCodPostal.getText())){
+            if(txtAdminAdministradorDni.getText().length()<10 && txtAdminAdministradorDni.getText().length()>8 && txtAdminAdministradorTelefono.getText().length()<10 && txtAdminAdministradorTelefono.getText().length()>8 && txtAdminAdministradorCodPostal.getText().length()<6 && txtAdminAdministradorCodPostal.getText().length()>4){
         f.modificarEmpleado(txtAdminAdministradorDni.getText(),txtAdminAdministradorContraseña.getText(), txtAdminAdministradorNombre.getText(), txtAdminAdministradorApellidos.getText(), txtAdminAdministradorDireccion.getText(), Integer.parseInt(txtAdminAdministradorTelefono.getText()),txtAdminAdministradorCorreo.getText(), Integer.parseInt(txtAdminAdministradorCodPostal.getText()));
         this.listaAdmin.setModel(f.listAdmin());
        
@@ -3836,6 +3842,9 @@ try{
         txtAdminAdministradorCorreo.setText("");
         
             JOptionPane.showMessageDialog(null, "Administrador modificado");
+            }else{
+                JOptionPane.showMessageDialog(null, "solo 9 digitos en telefono, 9 carazteres en dni y 5 digitos en codigopostal");
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Solo caracteres numericos en Teléfono");
         }
@@ -3870,6 +3879,7 @@ try{
         
         if(!txtAdminAdministradorDni.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtAdminAdministradorNombre.getText().isEmpty() && !txtAdminAdministradorApellidos.getText().isEmpty() && !txtAdminAdministradorDireccion.getText().isEmpty() && !txtAdminAdministradorTelefono.getText().isEmpty() && !txtAdminAdministradorCorreo.getText().isEmpty() && !txtAdminAdministradorCodPostal.getText().isEmpty()){
         if(c.comprobacion(txtAdminAdministradorTelefono.getText())  && c.comprobacion(txtAdminAdministradorCodPostal.getText())){
+            if(txtAdminAdministradorDni.getText().length()<10 && txtAdminAdministradorDni.getText().length()>8 && txtAdminAdministradorTelefono.getText().length()<10 && txtAdminAdministradorTelefono.getText().length()>8 && txtAdminAdministradorCodPostal.getText().length()<6 && txtAdminAdministradorCodPostal.getText().length()>4){
         
             f.añadirAdministrador(txtAdminAdministradorDni.getText(),txtAdminAdministradorContraseña.getText(), 1, txtAdminAdministradorNombre.getText(), txtAdminAdministradorApellidos.getText(), txtAdminAdministradorDireccion.getText(), Integer.parseInt(txtAdminAdministradorTelefono.getText()),txtAdminAdministradorCorreo.getText(), Integer.parseInt(txtAdminAdministradorCodPostal.getText()));
             this.listaAdmin.setModel(f.listAdmin());
@@ -3884,6 +3894,10 @@ try{
             txtAdminAdministradorCorreo.setText("");
             
             JOptionPane.showMessageDialog(null, "Administrador guardado");
+            }else{
+                JOptionPane.showMessageDialog(null, "solo 9 digitos en telefono, 9 carazteres en dni y 5 digitos en codigopostal");
+            }
+                
         }else{
             JOptionPane.showMessageDialog(null, "Solo caracteres numericos en Teléfono");
         }
@@ -3895,6 +3909,7 @@ try{
     private void buttonAction6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction6ActionPerformed
         if(!txtAdminClienteDni.getText().isEmpty() && !txtAdminClienteNombre.getText().isEmpty() && !txtAdminClienteApellidos.getText().isEmpty() && !txtAdminClienteDireccion.getText().isEmpty() && !txtAdminClienteCP.getText().isEmpty() && !txtAdminClienteCiudad.getText().isEmpty() && !txtAdminClienteTelefono.getText().isEmpty() && !txtAdminClienteCorreo.getText().isEmpty()){
         if(c.comprobacion(txtAdminClienteCP.getText())  && c.comprobacion(txtAdminClienteTelefono.getText())){
+            if(txtAdminClienteTelefono.getText().length()<10 && txtAdminClienteTelefono.getText().length()>8 && txtAdminClienteCP.getText().length()<6 && txtAdminClienteCP.getText().length()>4){
         String fecha = new SimpleDateFormat("yyyy-MM-dd").format(this.fecha.getDate());
         f.modificarCliente(txtAdminClienteDni.getText(), txtAdminClienteNombre.getText(), txtAdminClienteApellidos.getText(), fecha, txtAdminClienteDireccion.getText(), Integer.parseInt(txtAdminClienteCP.getText()), txtAdminClienteCiudad.getText(), Integer.parseInt(txtAdminClienteTelefono.getText()), txtAdminClienteCorreo.getText());
         this.tablaClientes.setModel(f.listarClientes());
@@ -3909,6 +3924,9 @@ try{
         txtAdminClienteCiudad.setText("");
         
             JOptionPane.showMessageDialog(null, "Cliente modificado");
+            }else{
+                JOptionPane.showMessageDialog(null, "Solo 9 digitos en telefono y 5 digitos en codigopostal");
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Solo caracteres numericos en Telefono y codigo postal");
         }
@@ -4067,7 +4085,21 @@ try{
     }//GEN-LAST:event_buttonAction17ActionPerformed
 
     private void buttonAction21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction21ActionPerformed
-        f.modificarTrabajador(txtAdminAdministradorNombre17.getText(), txtAdminAdministradorApellidos11.getText(), txtAdminAdministradorNombre16.getText(), txtAdminAdministradorApellidos10.getText(), txtAdminAdministradorDireccion6.getText(), Integer.parseInt(txtAdminAdministradorTelefono6.getText()), txtAdminAdministradorCorreo6.getText(), Integer.parseInt(txtAdminAdministradorCodPostal6.getText()));
+        if(!txtAdminAdministradorApellidos11.getText().isEmpty() && !txtAdminAdministradorNombre16.getText().isEmpty() && !txtAdminAdministradorApellidos10.getText().isEmpty() && !txtAdminAdministradorDireccion6.getText().isEmpty() && !txtAdminAdministradorTelefono6.getText().isEmpty() && !txtAdminAdministradorCorreo6.getText().isEmpty() && !txtAdminAdministradorCodPostal6.getText().isEmpty()){
+           if(c.comprobacion(this.txtAdminAdministradorCodPostal6.getText()) && c.comprobacion(this.txtAdminAdministradorTelefono6.getText())){
+               if(this.txtAdminAdministradorCodPostal6.getText().length()<6 && this.txtAdminAdministradorCodPostal6.getText().length()>4 && this.txtAdminAdministradorTelefono6.getText().length()<10 && this.txtAdminAdministradorTelefono6.getText().length()>8){
+                   f.modificarTrabajador(txtAdminAdministradorNombre17.getText(), txtAdminAdministradorApellidos11.getText(), txtAdminAdministradorNombre16.getText(), txtAdminAdministradorApellidos10.getText(), txtAdminAdministradorDireccion6.getText(), Integer.parseInt(txtAdminAdministradorTelefono6.getText()), txtAdminAdministradorCorreo6.getText(), Integer.parseInt(txtAdminAdministradorCodPostal6.getText()));
+               }else{
+                   JOptionPane.showMessageDialog(null,"valores muy alto o muy bajos en codpostal y telefono");
+               }
+        
+        }else{
+            JOptionPane.showMessageDialog(null, "Solo datos numericos en telefono y codigo postal");
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Rellene los campos");
+        }
+        
     }//GEN-LAST:event_buttonAction21ActionPerformed
 
     private void txtAdminAdministradorNombre8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminAdministradorNombre8ActionPerformed
@@ -4075,6 +4107,21 @@ try{
     }//GEN-LAST:event_txtAdminAdministradorNombre8ActionPerformed
 
     private void buttonAction28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction28ActionPerformed
+        if(!txtTrabClienteDni.getText().isEmpty() && !txtAdminAdministradorApellidos8.getText().isEmpty() && !txtAdminAdministradorNombre8.getText().isEmpty() && !txtAdminAdministradorDireccion4.getText().isEmpty() && !txtAdminAdministradorCodPostal4.getText().isEmpty() && !txtAdminAdministradorApellidos7.getText().isEmpty() && !txtAdminAdministradorTelefono4.getText().isEmpty() && !txtAdminAdministradorCorreo4.getText().isEmpty()){
+            if(c.comprobacion(txtAdminAdministradorCodPostal4.getText()) && c.comprobacion(txtAdminAdministradorTelefono4.getText())){
+                if(txtAdminAdministradorTelefono4.getText().length()<10 && txtAdminAdministradorTelefono4.getText().length()>8 && txtAdminAdministradorCodPostal4.getText().length()<6 && txtAdminAdministradorCodPostal4.getText().length()>4 ){
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "telefono solo acepta 9 digitos y codpostal 5");
+                            
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Solo datos numericos en telefono y codPostal");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Rellene todo los campos");
+        }
+            
         String fecha = new SimpleDateFormat("yyyy-MM-dd").format(this.fecha1.getDate());
         f.modificarCliente(txtTrabClienteDni.getText(), txtAdminAdministradorApellidos8.getText(), txtAdminAdministradorNombre8.getText(), fecha, txtAdminAdministradorDireccion4.getText(), Integer.parseInt(txtAdminAdministradorCodPostal4.getText()), txtAdminAdministradorApellidos7.getText(), Integer.parseInt(txtAdminAdministradorTelefono4.getText()), txtAdminAdministradorCorreo4.getText());
         this.tablaClientes2.setModel(f.listarClientes());
@@ -4088,26 +4135,43 @@ try{
         String apellidos = txtTrabMatriculaApellidos.getText();
         String direccion = txtTrabMatriculaDireccion.getText();
         String ciudad = txtTrabMatriculaCiudad.getText();
-        int codPostal = Integer.parseInt(txtTrabMatriculaCP.getText());
-        int telefono = Integer.parseInt(txtTrabMatriculaTelefono.getText());
+        String codPostal = txtTrabMatriculaCP.getText();
+        String telefono = txtTrabMatriculaTelefono.getText();
         String correo = txtTrabMatriculaCorreo.getText();
-        
+        //fecha del sistema
         DefaultListModel mt = (DefaultListModel) listTrabMatricTarifa.getModel();
         Calendar calendar = new GregorianCalendar();
         JDateChooser dc = new JDateChooser();
         dc.setCalendar(calendar);
-        
+        //fecha del cliente
         String fecha = new SimpleDateFormat("yyyy-MM-dd").format(dc.getDate());
 //        String fecha = fechaNacimiento;
-        
         double precio = Double.parseDouble(lblTrabTotalMatricula.getText());
         ;
-        
-        if(f.añadirMatricula(dni, nombre, apellidos, fechaNacimiento, direccion, codPostal, ciudad, telefono, correo, fecha, precio, mt)){
-            JOptionPane.showMessageDialog(null, "Matricula realizada con exito");
+        if(!dni.isEmpty() && !nombre.isEmpty() && !apellidos.isEmpty() && !direccion.isEmpty() && !codPostal.isEmpty() && !ciudad.isEmpty() && !telefono.isEmpty() && !correo.isEmpty()){
+           if(c.comprobacion(codPostal) && c.comprobacion(telefono)){
+               if(dni.length()<10 && dni.length()>8 && telefono.length()<10 && telefono.length()>8 && codPostal.length()<6 && codPostal.length()>4){
+                   if(f.añadirMatricula(dni, nombre, apellidos, fechaNacimiento, direccion, Integer.parseInt(codPostal), ciudad, Integer.parseInt(telefono), correo, fecha, precio, mt)){
+                   JOptionPane.showMessageDialog(null, "Matricula realizada con exito");
+                 }else{
+                 
+                 JOptionPane.showMessageDialog(null, "Error al realizar la matricula");
+                   
+                           
+           }
+               }else{
+                   JOptionPane.showMessageDialog(null,"9 ditios en telefono, 9 carazteres en dni y 5 digitos en codigopostal");
+               }
+           
+               
+           }else{
+               JOptionPane.showMessageDialog(null, "Solo datos numericos en telefono y codpostal");
+           }
         }else{
-            JOptionPane.showMessageDialog(null, "Error al realizar la matricula");
+            JOptionPane.showMessageDialog(null, "Rellene los campos");
         }
+        
+        
         
        
     }//GEN-LAST:event_btnTrabMatriculaRealizarActionPerformed
@@ -4186,12 +4250,14 @@ try{
                 //Metodo para modificar tarifa
                 if(f.modificarTarifa(txtTrabClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
                     JOptionPane.showMessageDialog(null, "Tarifa modificada");
+                    this.diaAdminClienteTarifa.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "Error al modificar la tarifa");
                 }
             }else if(lblTipoAdministrador.equals("Administrador")){
                 if(f.modificarTarifa(txtAdminClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
                     JOptionPane.showMessageDialog(null, "Tarifa modificada");
+                    this.diaAdminClienteTarifa.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "Error al modificar la tarifa");
                 }
@@ -4199,6 +4265,21 @@ try{
                         
         }
     }//GEN-LAST:event_buttonAction20ActionPerformed
+
+    private void txtAdminAdministradorDireccion6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminAdministradorDireccion6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAdminAdministradorDireccion6ActionPerformed
+
+    private void btnTrabMatriculaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabMatriculaNuevaActionPerformed
+       txtTrabMatriculaDni.setText("");
+       txtTrabMatriculaNombre.setText("");
+       txtTrabMatriculaApellidos.setText("");
+       txtTrabMatriculaDireccion.setText("");
+       txtTrabMatriculaCiudad.setText("");
+       txtTrabMatriculaTelefono.setText("");
+       txtTrabMatriculaCorreo.setText("");
+       txtTrabMatriculaCP.setText("");
+    }//GEN-LAST:event_btnTrabMatriculaNuevaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4264,7 +4345,6 @@ try{
     private org.edisoncor.gui.button.ButtonAction buttonAction20;
     private org.edisoncor.gui.button.ButtonAction buttonAction21;
     private org.edisoncor.gui.button.ButtonAction buttonAction22;
-    private org.edisoncor.gui.button.ButtonAction buttonAction25;
     private org.edisoncor.gui.button.ButtonAction buttonAction28;
     private org.edisoncor.gui.button.ButtonAction buttonAction29;
     private org.edisoncor.gui.button.ButtonAction buttonAction3;
