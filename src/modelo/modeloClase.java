@@ -9,6 +9,7 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
@@ -186,7 +187,7 @@ public class modeloClase extends conexion implements interfazClase {
            PreparedStatement pstm = this.getConexion().prepareStatement( "select * from clase");
            ResultSet res = pstm.executeQuery();
             
-            while (res.next()) //go through each row that your query returns
+            while (res.next())
             {
                 String itemCode = res.getString("idClase") + " - " + res.getString("nombre"); 
                 model.addElement(itemCode); 
@@ -219,7 +220,7 @@ public class modeloClase extends conexion implements interfazClase {
                 PreparedStatement pstm = this.getConexion().prepareStatement( "select precio from clase where idClase = '"  + id + " ' ");
                 ResultSet res = pstm.executeQuery();
 
-                 while (res.next()) //go through each row that your query returns
+                 while (res.next()) 
                  {
                     precio = res.getFloat("precio"); 
                       
@@ -238,4 +239,72 @@ public class modeloClase extends conexion implements interfazClase {
         return total;
     }
     
+    //Metodo para sacar las clases que no tiene un clinete
+    @Override
+    public DefaultListModel listClasesNo(String dni){
+    DefaultListModel model = new DefaultListModel();
+        try {
+           PreparedStatement pstm = this.getConexion().prepareStatement( "select * from clase where nombre not in (select d.nombre from cliente a, matricula b, tarifa c, clase d where a.dni=b.idCliente and b.idMatricula=c.idMatricula and c.idClase=d.idClase and a.dni='"  + dni + " ')");
+           ResultSet res = pstm.executeQuery();
+            
+            while (res.next()) 
+            {
+                String itemCode = res.getString("idClase") + " - " + res.getString("nombre"); 
+                model.addElement(itemCode); 
+            }
+            
+            res.close();
+            pstm.close();
+          } catch (SQLException ex) {
+            Logger.getLogger(modeloCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       return model;
+    }
+    
+    //Modificar clases cliente
+    @Override
+    public boolean modificarTarifa(String dni, DefaultListModel lista){
+        
+        try {
+            //Recogemos la id de la matricula
+            int maximo = 0;
+            String q="select idMatricula as todo from matricula where idCliente = '" + dni + "'";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            while(res.next()){
+                 maximo = res.getInt("todo");
+            }
+        
+            //Eliminamos las tarifas con el idMatricula recogido previamente
+            String q1 = "DELETE FROM tarifa WHERE idMatricula = " + maximo;
+            PreparedStatement pstm1 = this.getConexion().prepareStatement(q);
+            pstm1.execute();
+            pstm1.close();
+            
+            for(int i = 0; i < lista.size(); i++){
+           
+                    String id = (String) lista.getElementAt(i);
+
+                    List<String> l = Arrays.asList(id.split(" "));
+
+                    id = l.get(0);
+
+                    try {
+                        
+                        String q2 = "INSERT INTO tarifa VALUES ('" + maximo + "', '" + id + "')";
+                        PreparedStatement pstm2 = this.getConexion().prepareStatement(q2);
+                        pstm2.execute();
+                        pstm2.close();
+
+                  } catch (SQLException ex) {
+                    Logger.getLogger(modeloCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            
+            return true;
+        } catch (SQLException e) {
+            System.err.println( e.getMessage() );
+            return false;
+        } 
+    }
 }

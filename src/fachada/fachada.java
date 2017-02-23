@@ -144,8 +144,14 @@ public class fachada {
     public float precioMatricula(DefaultListModel mt){
         return clase.precioMatricula(mt);
     }
-
     
+    public DefaultListModel listClasesNo(String dni){
+        return clase.listClasesNo(dni);
+    }
+    
+     public boolean modificarTarifa(String dni, DefaultListModel lista){
+         return clase.modificarTarifa(dni, lista);
+     }
      //---------maquina--------------//
      
      private interfazMaquina maquina = new modeloMaquina();

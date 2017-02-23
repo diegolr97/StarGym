@@ -233,11 +233,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         diaAdminClienteTarifa = new javax.swing.JDialog();
         jPanel14 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listMiTarifa = new javax.swing.JList<>();
         buttonAeroRight1 = new org.edisoncor.gui.button.ButtonAeroRight();
         buttonAeroLeft1 = new org.edisoncor.gui.button.ButtonAeroLeft();
         jScrollPane9 = new javax.swing.JScrollPane();
-        listaclases2 = new javax.swing.JList<>();
+        listClasesNo = new javax.swing.JList<>();
         labelMetric44 = new org.edisoncor.gui.label.LabelMetric();
         labelMetric45 = new org.edisoncor.gui.label.LabelMetric();
         buttonAction19 = new org.edisoncor.gui.button.ButtonAction();
@@ -523,12 +523,12 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
 
         jPanel14.setBackground(new java.awt.Color(0, 0, 0));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listMiTarifa.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane8.setViewportView(jList1);
+        jScrollPane8.setViewportView(listMiTarifa);
 
         buttonAeroRight1.setForeground(new java.awt.Color(0, 0, 0));
         buttonAeroRight1.setText(">>");
@@ -542,13 +542,18 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         buttonAeroLeft1.setForeground(new java.awt.Color(0, 0, 0));
         buttonAeroLeft1.setText("<<");
         buttonAeroLeft1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        buttonAeroLeft1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAeroLeft1ActionPerformed(evt);
+            }
+        });
 
-        listaclases2.setModel(new javax.swing.AbstractListModel<String>() {
+        listClasesNo.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane9.setViewportView(listaclases2);
+        jScrollPane9.setViewportView(listClasesNo);
 
         labelMetric44.setText("Clases:");
 
@@ -557,6 +562,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         buttonAction19.setText("Cancelar");
 
         buttonAction20.setText("Aceptar");
+        buttonAction20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAction20ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -2944,30 +2954,29 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         jPanel29.setLayout(jPanel29Layout);
         jPanel29Layout.setHorizontalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel29Layout.createSequentialGroup()
-                .addGap(689, 689, 689)
-                .addComponent(buttonAction46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel29Layout.createSequentialGroup()
-                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(labelMetric83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric88, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel29Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelMetric83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel29Layout.createSequentialGroup()
-                                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                        .addGap(689, 689, 689)
+                        .addComponent(buttonAction46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel29Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
+                        .addGap(44, 44, 44)
                         .addComponent(labelMetric81, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(comboBoxRectIcon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(19, 19, 19)
-                        .addComponent(labelMetric88, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(comboBoxRectIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel29Layout.setVerticalGroup(
             jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2999,7 +3008,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelMetric84.setText("Star GYM");
         labelMetric84.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jPanel26.add(labelMetric84, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, -1));
+        jPanel26.add(labelMetric84, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1140, -1));
 
         panelTrabCobro.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, 1120, 531));
 
@@ -3349,8 +3358,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         diaAdminClienteTarifa.setSize(387, 315);
         diaAdminClienteTarifa.setVisible(true);
         
-        this.listaclases2.setModel(f.listTodasClases());
-        this.jList1.setModel(f.listClases((String) this.tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
+        this.listClasesNo.setModel(f.listClasesNo((String) this.tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
+        this.listMiTarifa.setModel(f.listClases((String) this.tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
     }//GEN-LAST:event_buttonAction10ActionPerformed
 
     private void buttonIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonIcon1ActionPerformed
@@ -3700,8 +3709,8 @@ try{
         diaAdminClienteTarifa.setSize(387, 315);
         diaAdminClienteTarifa.setVisible(true);
         
-        this.listaclases2.setModel(f.listTodasClases());
-        this.jList1.setModel(f.listClases((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0)));
+        this.listClasesNo.setModel(f.listTodasClases());
+        this.listMiTarifa.setModel(f.listClases((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0)));
     }//GEN-LAST:event_btnTrabClienteClasesActionPerformed
 
     private void txtAdminAdministradorDireccion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminAdministradorDireccion4ActionPerformed
@@ -3977,7 +3986,7 @@ try{
 
     private void buttonAction11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction11ActionPerformed
         //boton admin trabajador modificar
-        if(!txtAdminTrabajDni.getText().isEmpty() && !txtAdminTrabajContrsña.getText().isEmpty() && txtAdminTrabajContrsña.getText().isEmpty() && !txtAdminTrabajNombre.getText().isEmpty() && !txtAdminTrabajApellid.getText().isEmpty() && !txtAdminTrabajDireccion.getText().isEmpty() && !txtAdminTrabajTeled.getText().isEmpty() && !txtAdminTrabajCorreo.getText().isEmpty() && !txtAdminTrabajCP.getText().isEmpty()){
+        if(!txtAdminTrabajDni.getText().isEmpty() && !txtAdminTrabajContrsña.getText().isEmpty() && !txtAdminTrabajNombre.getText().isEmpty() && !txtAdminTrabajApellid.getText().isEmpty() && !txtAdminTrabajDireccion.getText().isEmpty() && !txtAdminTrabajTeled.getText().isEmpty() && !txtAdminTrabajCorreo.getText().isEmpty() && !txtAdminTrabajCP.getText().isEmpty()){
         if(c.comprobacion(txtAdminTrabajCP.getText())  && c.comprobacion(txtAdminTrabajTeled.getText())){
         f.modificarTrabajador(txtAdminTrabajDni.getText(), txtAdminTrabajContrsña.getText(), txtAdminTrabajNombre.getText(), txtAdminTrabajApellid.getText(), txtAdminTrabajDireccion.getText(), Integer.parseInt(txtAdminTrabajTeled.getText()), txtAdminTrabajCorreo.getText(),Integer.parseInt(txtAdminTrabajCP.getText()));
         this.listaTrabajadores.setModel(f.listTrabajador());
@@ -4140,12 +4149,12 @@ try{
     }//GEN-LAST:event_buttonAeroLeft2ActionPerformed
 
     private void buttonAeroRight1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAeroRight1ActionPerformed
-         if(listTrabMatricTarifa.getSelectedIndex() != -1){
-            DefaultListModel mt = (DefaultListModel) jList1.getModel();
-            mt.addElement(listaclases2.getSelectedValue());
+         if(listClasesNo.getSelectedIndex() != -1){
+            DefaultListModel mt = (DefaultListModel) listMiTarifa.getModel();
+            mt.addElement(listClasesNo.getSelectedValue());
             
-            DefaultListModel mc = (DefaultListModel) jList1.getModel();
-            mc.remove(listaclases2.getSelectedIndex());
+            DefaultListModel mc = (DefaultListModel) listClasesNo.getModel();
+            mc.remove(listClasesNo.getSelectedIndex());
               
         }else{
             JOptionPane.showMessageDialog(null, "Selecciona alguna clase");
@@ -4155,6 +4164,31 @@ try{
     private void comboBoxRectIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxRectIcon1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxRectIcon1ActionPerformed
+
+    private void buttonAeroLeft1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAeroLeft1ActionPerformed
+        if(listMiTarifa.getSelectedIndex() != -1){
+            DefaultListModel mc = (DefaultListModel) listClasesNo.getModel();
+            mc.addElement(listMiTarifa.getSelectedValue());
+            
+            DefaultListModel mt = (DefaultListModel) listMiTarifa.getModel();
+            mt.remove(listMiTarifa.getSelectedIndex());
+              
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecciona alguna clase");
+        }
+    }//GEN-LAST:event_buttonAeroLeft1ActionPerformed
+
+    private void buttonAction20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction20ActionPerformed
+        //Modificamos la tarifa del cliente
+        if(JOptionPane.showConfirmDialog(null, "¿Seguro de modificar la Tarifa?") == 0){
+            
+            if(f.modificarTarifa(txtAdminClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
+                JOptionPane.showMessageDialog(null, "Tarifa modificada");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al modificar la tarifa");
+            }            
+        }
+    }//GEN-LAST:event_buttonAction20ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4254,7 +4288,6 @@ try{
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -4396,13 +4429,14 @@ try{
     private javax.swing.JLabel lblHoraTrabajador;
     private org.edisoncor.gui.label.LabelMetric lblTrabTotalMatricula;
     private org.edisoncor.gui.label.LabelMetric lblTrabajador;
+    private javax.swing.JList<String> listClasesNo;
+    private javax.swing.JList<String> listMiTarifa;
     private javax.swing.JList<String> listTrabMatricClases;
     private javax.swing.JList<String> listTrabMatricTarifa;
     private javax.swing.JList<String> listaAdmin;
     private javax.swing.JList<String> listaClientes;
     private javax.swing.JList<String> listaClientes1;
     private javax.swing.JList<String> listaTrabajadores;
-    private javax.swing.JList<String> listaclases2;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelAdminAdmin;
     private javax.swing.JPanel panelAdminCliente;

@@ -31,4 +31,8 @@ public interface interfazClase {
     
     public float precioMatricula(DefaultListModel mt);
     
+    public DefaultListModel listClasesNo(String dni);
+    
+     public boolean modificarTarifa(String dni, DefaultListModel lista);
+    
 }

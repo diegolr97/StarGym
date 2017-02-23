@@ -38,12 +38,12 @@ public class modeloCliente extends conexion implements interfazCliente {
 {
     DefaultListModel model = new DefaultListModel();
         try {
-           PreparedStatement pstm = this.getConexion().prepareStatement( "select d.nombre from cliente a, matricula b, tarifa c, clase d where a.dni=b.idCliente and b.idMatricula=c.idMatricula and c.idClase=d.idClase and a.dni='" + dni + "'");
+           PreparedStatement pstm = this.getConexion().prepareStatement( "select d.nombre, d.idClase from cliente a, matricula b, tarifa c, clase d where a.dni=b.idCliente and b.idMatricula=c.idMatricula and c.idClase=d.idClase and a.dni='" + dni + "'");
            ResultSet res = pstm.executeQuery();
             
             while (res.next()) //go through each row that your query returns
             {
-                String itemCode = res.getString("d.nombre"); //get the element in column "item_code"
+                String itemCode = res.getString("d.idClase") + " - " + res.getString("d.nombre"); //get the element in column "item_code"
                 model.addElement(itemCode); //add each item to the model
             }
             
@@ -471,7 +471,7 @@ public class modeloCliente extends conexion implements interfazCliente {
       
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0;
-      String[] columNames = {"DNI", "Nombre", "Apellidos", "idMensualidad",  "NumClases", "Coste"};
+      String[] columNames = {"idMensualidad",  "NumClases", "Coste"};
       //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
       //para formar la matriz de datos
       try{
@@ -484,20 +484,17 @@ public class modeloCliente extends conexion implements interfazCliente {
          System.err.println( e.getMessage() );
       }
     //se crea una matriz con tantas filas y columnas que necesite
-    Object[][] data = new String[registros][6];
+    Object[][] data = new String[registros][3];
       try{
           //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
          PreparedStatement pstm = this.getConexion().prepareStatement("select t.dni, t.nombre, t.apellidos, u.idMensualidad, (select count(d.idClase) from cliente a, matricula b, tarifa c, clase d where a.dni=b.idCliente and b.idMatricula=c.idMatricula and c.idClase=d.idClase) as totalclases, u.coste from cliente t, matricula y, mensualidad u where t.dni = y.idCliente and y.idMatricula=u.idMatricula and t.dni='" + dni + "'");
          ResultSet res = pstm.executeQuery();
          int i=0;
          while(res.next()){
-                
-                data[i][0] = res.getString("t.dni");
-                data[i][1] = res.getString("t.nombre");
-                data[i][2] = res.getString("apellidos");
-                data[i][3] = res.getString("u.idMensualidad");
-                data[i][4] = res.getString("totalclases");
-                data[i][5] = res.getString("u.coste");
+
+                data[i][0] = res.getString("u.idMensualidad");
+                data[i][1] = res.getString("totalclases");
+                data[i][2] = res.getString("u.coste");
                 
                     
             i++;
