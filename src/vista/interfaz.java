@@ -2197,7 +2197,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         panelAdmin.add(lblAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 9, -1, -1));
 
         lblHoraAdmin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblHoraAdmin.setForeground(new java.awt.Color(255, 204, 0));
+        lblHoraAdmin.setForeground(new java.awt.Color(255, 255, 255));
         lblHoraAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHoraAdmin.setText("Hora");
         panelAdmin.add(lblHoraAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 2, 140, 30));
