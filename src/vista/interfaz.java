@@ -4300,7 +4300,7 @@ try{
         //Boton pagar mensualidad
         
         String dni = (String) this.tablaTrabCobroCliente.getValueAt(tablaTrabCobroCliente.getSelectedRow(), 0);
-        int idMatricula = Integer.parseInt((String) this.tablaTrabCobroMensual.getValueAt(tablaTrabCobroMensual.getSelectedRow(), 1));
+        int idMatricula = Integer.parseInt((String) this.tablaTrabCobroCliente.getValueAt(tablaTrabCobroCliente.getSelectedRow(), 3));
         
         //fecha del sistema
         Calendar calendar = new GregorianCalendar();

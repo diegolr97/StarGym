@@ -425,7 +425,7 @@ public class modeloCliente extends conexion implements interfazCliente {
         DefaultTableModel tablemodel = new DefaultTableModel();
     
       int registros = 0;
-      String[] columNames = {"DNI", "Nombre", "Apellidos", "Nacimiento"};
+      String[] columNames = {"DNI", "Nombre", "Apellidos", "idMatricula"};
       //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
       //para formar la matriz de datos
       try{
@@ -446,10 +446,10 @@ public class modeloCliente extends conexion implements interfazCliente {
          int i=0;
          while(res.next()){
                 
-                data[i][0] = res.getString("dni");
-                data[i][1] = res.getString("nombre");
-                data[i][2] = res.getString("apellidos");
-                data[i][3] = res.getString("fechaNacimiento");
+                data[i][0] = res.getString("a.dni");
+                data[i][1] = res.getString("a.nombre");
+                data[i][2] = res.getString("a.apellidos");
+                data[i][3] = res.getString("b.idMatricula");
                 
                 
                      
