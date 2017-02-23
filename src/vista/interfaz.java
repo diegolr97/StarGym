@@ -3530,9 +3530,13 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     }//GEN-LAST:event_buttonAction32ActionPerformed
 
     private void buttonAction9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction9ActionPerformed
-try{
+
+     if (tablaClientes.getSelectedRow() > -1) {
+         
+         
+     
     
-        
+       try{ 
         conexion cn = new conexion();
         String dir;
         dir = "src/reporte/matriculaCli.jrxml";
@@ -3555,8 +3559,13 @@ try{
        
         }catch(JRException ex){
             Logger.getLogger(interfaz.class.getName()).log(Level.SEVERE, null, ex);
+                }
             
-        }            
+        
+        }else{
+         JOptionPane.showMessageDialog(null, "Seleciona algun cliente para ver su matricula");
+     }
+               
     }//GEN-LAST:event_buttonAction9ActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
@@ -3685,7 +3694,8 @@ try{
     }//GEN-LAST:event_buttonAction29ActionPerformed
 
     private void btnTrabClienteMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabClienteMatriculaActionPerformed
-         try{
+           if (tablaClientes2.getSelectedRow() > -1) {
+        try{
     
         
         conexion cn = new conexion();
@@ -3711,7 +3721,10 @@ try{
         }catch(JRException ex){
             Logger.getLogger(interfaz.class.getName()).log(Level.SEVERE, null, ex);
             
-        }            
+        }  
+           }else{
+               JOptionPane.showMessageDialog(null, "Debes Seleccionar un cliente para poder ver la matricula");
+           }
        
 
     }//GEN-LAST:event_btnTrabClienteMatriculaActionPerformed
@@ -4298,7 +4311,7 @@ try{
 
     private void buttonAction46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction46ActionPerformed
         //Boton pagar mensualidad
-        
+        if (tablaTrabCobroCliente.getSelectedRow() > -1) {
         String dni = (String) this.tablaTrabCobroCliente.getValueAt(tablaTrabCobroCliente.getSelectedRow(), 0);
         int idMatricula = Integer.parseInt((String) this.tablaTrabCobroCliente.getValueAt(tablaTrabCobroCliente.getSelectedRow(), 3));
         
@@ -4316,6 +4329,9 @@ try{
             }else{
                 JOptionPane.showMessageDialog(null, "Error al insertar mensualidad");
             }
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un cliente para pagar matricula");
         }
         
         
