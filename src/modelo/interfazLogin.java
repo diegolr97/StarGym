@@ -15,6 +15,6 @@ import java.sql.SQLException;
  */
 public interface interfazLogin {
     public int iniciarSesion(String Nombre, String Contraseña);
-       
+    public boolean inicioAdmin();   
     
 }

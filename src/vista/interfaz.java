@@ -69,8 +69,18 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     public interfaz() {
         
         initComponents();
+        
+        if(!f.inicioAdmin()){
+            diaAdmin.setVisible(true);
+            diaAdmin.setLocationRelativeTo(null);
+            diaAdmin.setSize(860, 400);
+        }
+        
         setLocationRelativeTo(null);
         llenarMenu();
+        
+        
+        
         panelLoguin.setVisible(true);
         avatarAdmin.setVisible(false);
         panelAdmin.setVisible(false);
@@ -93,7 +103,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         
         h1 = new Thread(this);
         h1.start();
-        setTitle("Tu Tutorial"); //Titulo del frame
+        setTitle("Star GYM"); //Titulo del frame
         setLocationRelativeTo(null); //Para centrar la ventana
         setVisible(true);
         
@@ -260,6 +270,27 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric40 = new org.edisoncor.gui.label.LabelMetric();
         txtMonitorNombre = new org.edisoncor.gui.textField.TextField();
         jSpinner1 = new javax.swing.JSpinner();
+        diaAdmin = new javax.swing.JDialog();
+        jPanel16 = new javax.swing.JPanel();
+        labelMetric3 = new org.edisoncor.gui.label.LabelMetric();
+        jPanel18 = new javax.swing.JPanel();
+        labelMetric54 = new org.edisoncor.gui.label.LabelMetric();
+        txtRegistroNombre = new org.edisoncor.gui.textField.TextField();
+        txtRegistroContraseña = new org.edisoncor.gui.textField.TextField();
+        txtRegistroDireccion = new org.edisoncor.gui.textField.TextField();
+        labelMetric55 = new org.edisoncor.gui.label.LabelMetric();
+        txtRegistroApellidos = new org.edisoncor.gui.textField.TextField();
+        labelMetric56 = new org.edisoncor.gui.label.LabelMetric();
+        txtRegistroCP = new org.edisoncor.gui.textField.TextField();
+        labelMetric57 = new org.edisoncor.gui.label.LabelMetric();
+        labelMetric58 = new org.edisoncor.gui.label.LabelMetric();
+        txtRegistroCorreo = new org.edisoncor.gui.textField.TextField();
+        labelMetric82 = new org.edisoncor.gui.label.LabelMetric();
+        labelMetric85 = new org.edisoncor.gui.label.LabelMetric();
+        txtRegistroTelefono = new org.edisoncor.gui.textField.TextField();
+        txtRegistroDni = new org.edisoncor.gui.textField.TextField();
+        labelMetric86 = new org.edisoncor.gui.label.LabelMetric();
+        btnGuardarRegistroAdmin = new org.edisoncor.gui.button.ButtonAction();
         panelPrincipal = new javax.swing.JPanel();
         panelLoguin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -768,6 +799,176 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         diaAdminMaquinaMonitorLayout.setVerticalGroup(
             diaAdminMaquinaMonitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel16.setBackground(new java.awt.Color(0, 0, 0));
+
+        labelMetric3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelMetric3.setText("Star GYM");
+        labelMetric3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+
+        jPanel18.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro Administrador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(204, 204, 204))); // NOI18N
+
+        labelMetric54.setText("Contraseña:");
+        labelMetric54.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        txtRegistroNombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        txtRegistroContraseña.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        txtRegistroDireccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        labelMetric55.setText("Apellidos:");
+        labelMetric55.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        txtRegistroApellidos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        labelMetric56.setText("Cod. Postal");
+        labelMetric56.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        txtRegistroCP.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        labelMetric57.setText("Correo:");
+        labelMetric57.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        labelMetric58.setText("Direccion:");
+        labelMetric58.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        txtRegistroCorreo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        labelMetric82.setText("Telefono:");
+        labelMetric82.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        labelMetric85.setText("Dni:");
+        labelMetric85.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        txtRegistroTelefono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        txtRegistroDni.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        labelMetric86.setText("Nombre:");
+        labelMetric86.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelMetric58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelMetric86, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelMetric82, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                                .addComponent(txtRegistroDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelMetric56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtRegistroCP, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addComponent(txtRegistroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(labelMetric57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtRegistroCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addComponent(txtRegistroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelMetric55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtRegistroApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(labelMetric85, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtRegistroDni, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(labelMetric54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtRegistroContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRegistroContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegistroDni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric85, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelMetric55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegistroApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtRegistroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelMetric86, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRegistroCP, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegistroDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelMetric82, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegistroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMetric57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegistroCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        btnGuardarRegistroAdmin.setText("Guardar");
+        btnGuardarRegistroAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarRegistroAdminActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelMetric3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardarRegistroAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelMetric3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGuardarRegistroAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout diaAdminLayout = new javax.swing.GroupLayout(diaAdmin.getContentPane());
+        diaAdmin.getContentPane().setLayout(diaAdminLayout);
+        diaAdminLayout.setHorizontalGroup(
+            diaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        diaAdminLayout.setVerticalGroup(
+            diaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(diaAdminLayout.createSequentialGroup()
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -3902,8 +4103,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     }//GEN-LAST:event_buttonAction5ActionPerformed
 
     private void buttonAction3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction3ActionPerformed
-        
-        if(!txtAdminAdministradorDni.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtAdminAdministradorNombre.getText().isEmpty() && !txtAdminAdministradorApellidos.getText().isEmpty() && !txtAdminAdministradorDireccion.getText().isEmpty() && !txtAdminAdministradorTelefono.getText().isEmpty() && !txtAdminAdministradorCorreo.getText().isEmpty() && !txtAdminAdministradorCodPostal.getText().isEmpty()){
+        //Añadir administrador
+        if(!txtAdminAdministradorDni.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtAdminAdministradorNombre.getText().isEmpty() && !txtAdminAdministradorApellidos.getText().isEmpty() && !txtAdminAdministradorDireccion.getText().isEmpty() && !txtAdminAdministradorTelefono.getText().isEmpty() && !txtAdminAdministradorCorreo.getText().isEmpty() && !txtAdminAdministradorCodPostal.getText().isEmpty()){
         if(c.comprobacion(txtAdminAdministradorTelefono.getText())  && c.comprobacion(txtAdminAdministradorCodPostal.getText())){
             if(txtAdminAdministradorDni.getText().length()<10 && txtAdminAdministradorDni.getText().length()>8 && txtAdminAdministradorTelefono.getText().length()<10 && txtAdminAdministradorTelefono.getText().length()>8 && txtAdminAdministradorCodPostal.getText().length()<6 && txtAdminAdministradorCodPostal.getText().length()>4){
         
@@ -4338,6 +4539,61 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         
     }//GEN-LAST:event_buttonAction46ActionPerformed
 
+    private void btnGuardarRegistroAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarRegistroAdminActionPerformed
+        //Guardar registro admin
+        if(!txtRegistroDni.getText().isEmpty() && !txtAdminAdministradorContraseña.getText().isEmpty() && !txtRegistroNombre.getText().isEmpty() && !txtRegistroApellidos.getText().isEmpty() && !txtRegistroDireccion.getText().isEmpty() && !txtRegistroTelefono.getText().isEmpty() && !txtRegistroCorreo.getText().isEmpty() && !txtRegistroCP.getText().isEmpty()){
+        if(c.comprobacion(txtRegistroTelefono.getText())  && c.comprobacion(txtRegistroCP.getText())){
+            if(txtRegistroDni.getText().length()<10 && txtRegistroDni.getText().length()>8 && txtRegistroTelefono.getText().length()<10 && txtRegistroTelefono.getText().length()>8 && txtRegistroCP.getText().length()<6 && txtRegistroCP.getText().length()>4){
+        
+                String dni = txtRegistroDni.getText();
+                String contraseña = txtRegistroContraseña.getText();
+                String nombre = txtRegistroNombre.getText();
+                String apellidos = txtRegistroApellidos.getText();
+                String direccion = txtRegistroDireccion.getText();
+                int cp = Integer.parseInt(txtRegistroCP.getText());
+                int telefono = Integer.parseInt(txtRegistroTelefono.getText());
+                String correo = txtRegistroCorreo.getText();
+
+                if(f.añadirAdministrador(dni, contraseña, 1, nombre, apellidos, direccion, telefono, correo, cp)){
+                    JOptionPane.showMessageDialog(null, "Administrador añadido");
+                    diaAdmin.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error al añadir administrador");
+                }
+            
+            }else{
+                JOptionPane.showMessageDialog(null, "solo 9 digitos en telefono, 9 carazteres en dni y 5 digitos en codigopostal");
+            }
+                
+        }else{
+            JOptionPane.showMessageDialog(null, "Solo caracteres numericos en Teléfono");
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Rellena todo los campos");
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnGuardarRegistroAdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4381,6 +4637,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private org.edisoncor.gui.panel.PanelAvatarChooser avatarTrab;
     private org.edisoncor.gui.button.ButtonIpod btnAdminIpod;
     private org.edisoncor.gui.button.ButtonCircle btnAdminRetroceso;
+    private org.edisoncor.gui.button.ButtonAction btnGuardarRegistroAdmin;
     private org.edisoncor.gui.button.ButtonAction btnLoguinEntrar;
     private org.edisoncor.gui.button.ButtonAction btnTrabClienteClases;
     private org.edisoncor.gui.button.ButtonAction btnTrabClienteMatricula;
@@ -4424,6 +4681,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private org.edisoncor.gui.comboBox.ComboBoxRound cmbAdminMaquinas;
     private org.edisoncor.gui.comboBox.ComboBoxRectIcon comboBoxRectIcon1;
     private com.toedter.calendar.JDateChooser dcMatricula;
+    private javax.swing.JDialog diaAdmin;
     private javax.swing.JDialog diaAdminClienteTarifa;
     private javax.swing.JDialog diaAdminMaquinaMonitor;
     private org.edisoncor.gui.label.LabelTask dniTrabajador;
@@ -4442,7 +4700,9 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
@@ -4500,6 +4760,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private org.edisoncor.gui.label.LabelMetric labelMetric27;
     private org.edisoncor.gui.label.LabelMetric labelMetric28;
     private org.edisoncor.gui.label.LabelMetric labelMetric29;
+    private org.edisoncor.gui.label.LabelMetric labelMetric3;
     private org.edisoncor.gui.label.LabelMetric labelMetric30;
     private org.edisoncor.gui.label.LabelMetric labelMetric31;
     private org.edisoncor.gui.label.LabelMetric labelMetric32;
@@ -4525,6 +4786,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private org.edisoncor.gui.label.LabelMetric labelMetric51;
     private org.edisoncor.gui.label.LabelMetric labelMetric52;
     private org.edisoncor.gui.label.LabelMetric labelMetric53;
+    private org.edisoncor.gui.label.LabelMetric labelMetric54;
+    private org.edisoncor.gui.label.LabelMetric labelMetric55;
+    private org.edisoncor.gui.label.LabelMetric labelMetric56;
+    private org.edisoncor.gui.label.LabelMetric labelMetric57;
+    private org.edisoncor.gui.label.LabelMetric labelMetric58;
     private org.edisoncor.gui.label.LabelMetric labelMetric59;
     private org.edisoncor.gui.label.LabelMetric labelMetric6;
     private org.edisoncor.gui.label.LabelMetric labelMetric60;
@@ -4551,8 +4817,11 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private org.edisoncor.gui.label.LabelMetric labelMetric8;
     private org.edisoncor.gui.label.LabelMetric labelMetric80;
     private org.edisoncor.gui.label.LabelMetric labelMetric81;
+    private org.edisoncor.gui.label.LabelMetric labelMetric82;
     private org.edisoncor.gui.label.LabelMetric labelMetric83;
     private org.edisoncor.gui.label.LabelMetric labelMetric84;
+    private org.edisoncor.gui.label.LabelMetric labelMetric85;
+    private org.edisoncor.gui.label.LabelMetric labelMetric86;
     private org.edisoncor.gui.label.LabelMetric labelMetric88;
     private org.edisoncor.gui.label.LabelMetric labelMetric89;
     private org.edisoncor.gui.label.LabelMetric labelMetric9;
@@ -4653,6 +4922,14 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
     private org.edisoncor.gui.textField.TextField txtMonitorDni;
     private org.edisoncor.gui.textField.TextField txtMonitorNombre;
     private org.edisoncor.gui.textField.TextField txtMonitorTelefono;
+    private org.edisoncor.gui.textField.TextField txtRegistroApellidos;
+    private org.edisoncor.gui.textField.TextField txtRegistroCP;
+    private org.edisoncor.gui.textField.TextField txtRegistroContraseña;
+    private org.edisoncor.gui.textField.TextField txtRegistroCorreo;
+    private org.edisoncor.gui.textField.TextField txtRegistroDireccion;
+    private org.edisoncor.gui.textField.TextField txtRegistroDni;
+    private org.edisoncor.gui.textField.TextField txtRegistroNombre;
+    private org.edisoncor.gui.textField.TextField txtRegistroTelefono;
     private org.edisoncor.gui.textField.TextField txtTrabClienteDni;
     private org.edisoncor.gui.textField.TextField txtTrabMatriculaApellidos;
     private org.edisoncor.gui.textField.TextField txtTrabMatriculaCP;

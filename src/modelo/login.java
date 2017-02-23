@@ -29,7 +29,7 @@ public class login extends conexion implements interfazLogin {
             
             
             while (res.next()) {
-                //recorre uno a uno el Nombre y la Contraseña de cada Medico
+
                 dni = res.getString("idEmpleado");
                 contraseña = res.getString("clave");
                 admin = res.getInt("admin");
@@ -56,4 +56,33 @@ public class login extends conexion implements interfazLogin {
         return comp;
     }
     
+    public boolean inicioAdmin(){
+        
+        int admin = 0;
+        
+        try {
+            String q = "SELECT count(idEmpleado) as admin FROM empleado WHERE admin = 1";
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            ResultSet res = pstm.executeQuery();
+            
+            
+            while (res.next()) {
+
+                admin = res.getInt("admin");
+                
+            }
+            res.close();
+            if(admin > 0){
+                return true;
+            }else{
+                return false;
+            }
+            
+        } catch (SQLException e) {
+            
+            e.printStackTrace();
+            return false;
+        } 
+        
+    }
 }

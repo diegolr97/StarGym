@@ -36,12 +36,16 @@ import modelo.modeloTrabajador;
  */
 public class fachada {
     
-    //---------Login--------------//
+    //---------Loguin--------------//
     
     private interfazLogin login = new login();
     
     public int iniciarSesion(String Nombre, String Contraseña){
         return login.iniciarSesion(Nombre, Contraseña);
+    }
+    
+    public boolean inicioAdmin(){
+        return login.inicioAdmin();
     }
     
     //--------Clientes---------------//
