@@ -471,7 +471,7 @@ public class modeloCliente extends conexion implements interfazCliente {
       
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0;
-      String[] columNames = {"idMensualidad",  "NumClases", "Coste"};
+      String[] columNames = {"Mensualidad",  "Matricula", "Fecha", "Coste"};
       //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
       //para formar la matriz de datos
       try{
@@ -484,17 +484,20 @@ public class modeloCliente extends conexion implements interfazCliente {
          System.err.println( e.getMessage() );
       }
     //se crea una matriz con tantas filas y columnas que necesite
-    Object[][] data = new String[registros][3];
+    Object[][] data = new String[registros][5];
       try{
           //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-         PreparedStatement pstm = this.getConexion().prepareStatement("select t.dni, t.nombre, t.apellidos, u.idMensualidad, (select count(d.idClase) from cliente a, matricula b, tarifa c, clase d where a.dni=b.idCliente and b.idMatricula=c.idMatricula and c.idClase=d.idClase) as totalclases, u.coste from cliente t, matricula y, mensualidad u where t.dni = y.idCliente and y.idMatricula=u.idMatricula and t.dni='" + dni + "'");
+         //String cobro = "select t.dni, t.nombre, t.apellidos, u.idMensualidad, (select count(d.idClase) from cliente a, matricula b, tarifa c, clase d where a.dni=b.idCliente and b.idMatricula=c.idMatricula and c.idClase=d.idClase) as totalclases, u.coste from cliente t, matricula y, mensualidad u where t.dni = y.idCliente and y.idMatricula=u.idMatricula and t.dni='" + dni + "'";
+         String cobro = "SELECT * FROM mensualidad men, matricula ma, cliente c WHERE men.idMatricula = ma.idMatricula and ma.idCliente = c.dni and c.dni = '" + dni + "' ORDER BY men.fecha"; 
+         PreparedStatement pstm = this.getConexion().prepareStatement(cobro);
          ResultSet res = pstm.executeQuery();
          int i=0;
          while(res.next()){
 
-                data[i][0] = res.getString("u.idMensualidad");
-                data[i][1] = res.getString("totalclases");
-                data[i][2] = res.getString("u.coste");
+                data[i][0] = res.getString("men.idMensualidad");
+                data[i][1] = res.getString("men.idMatricula");
+                data[i][2] = res.getString("men.fecha");
+                data[i][3] = res.getString("men.coste");
                 
                     
             i++;
