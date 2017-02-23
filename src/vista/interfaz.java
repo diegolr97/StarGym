@@ -449,7 +449,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric65 = new org.edisoncor.gui.label.LabelMetric();
         txtAdminAdministradorCorreo4 = new org.edisoncor.gui.textField.TextField();
         labelMetric66 = new org.edisoncor.gui.label.LabelMetric();
-        txtAdminAdministradorNombre9 = new org.edisoncor.gui.textField.TextField();
+        txtTrabClienteDni = new org.edisoncor.gui.textField.TextField();
         labelMetric67 = new org.edisoncor.gui.label.LabelMetric();
         txtAdminAdministradorApellidos8 = new org.edisoncor.gui.textField.TextField();
         labelMetric68 = new org.edisoncor.gui.label.LabelMetric();
@@ -515,7 +515,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric84 = new org.edisoncor.gui.label.LabelMetric();
         Cobro = new org.edisoncor.gui.label.LabelTask();
         btnTrabajadorRetroceso = new org.edisoncor.gui.button.ButtonCircle();
-        labelMetric87 = new org.edisoncor.gui.label.LabelMetric();
+        lblTipoTrabajador = new org.edisoncor.gui.label.LabelMetric();
         lblTrabajador = new org.edisoncor.gui.label.LabelMetric();
         lblHoraTrabajador = new javax.swing.JLabel();
 
@@ -2325,10 +2325,10 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         labelMetric66.setText("Dni:");
         labelMetric66.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        txtAdminAdministradorNombre9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtAdminAdministradorNombre9.addActionListener(new java.awt.event.ActionListener() {
+        txtTrabClienteDni.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        txtTrabClienteDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAdminAdministradorNombre9ActionPerformed(evt);
+                txtTrabClienteDniActionPerformed(evt);
             }
         });
 
@@ -2431,7 +2431,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
                                 .addGap(25, 25, 25)
                                 .addComponent(labelMetric62, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel21Layout.createSequentialGroup()
-                                .addComponent(txtAdminAdministradorNombre9, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTrabClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelMetric68, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2469,7 +2469,7 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
                         .addGap(45, 45, 45)
                         .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtAdminAdministradorNombre9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTrabClienteDni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelMetric66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel21Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
@@ -3028,8 +3028,8 @@ public class interfaz extends javax.swing.JFrame implements DocumentListener, Ru
         });
         panelTrab.add(btnTrabajadorRetroceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 6, 20, 20));
 
-        labelMetric87.setText("Trabajador:");
-        panelTrab.add(labelMetric87, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 9, -1, -1));
+        lblTipoTrabajador.setText("Trabajador:");
+        panelTrab.add(lblTipoTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 9, -1, -1));
 
         lblTrabajador.setText("xxxxxxxxx");
         panelTrab.add(lblTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 9, -1, -1));
@@ -3680,8 +3680,8 @@ try{
         String dir;
         dir = "src/reporte/matriculaCli.jrxml";
         Map parametro = new HashMap();
-        parametro.put("parameter1", txtAdminAdministradorNombre9.getText());
-        parametro.put("dni", txtAdminAdministradorNombre9.getText());
+        parametro.put("parameter1", txtTrabClienteDni.getText());
+        parametro.put("dni", txtTrabClienteDni.getText());
         parametro.put("nombre", txtAdminAdministradorApellidos8.getText());
         parametro.put("apellidos", txtAdminAdministradorNombre8.getText());
         parametro.put("fechanac", (String) tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 7));
@@ -3717,16 +3717,16 @@ try{
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAdminAdministradorDireccion4ActionPerformed
 
-    private void txtAdminAdministradorNombre9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminAdministradorNombre9ActionPerformed
+    private void txtTrabClienteDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTrabClienteDniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAdminAdministradorNombre9ActionPerformed
+    }//GEN-LAST:event_txtTrabClienteDniActionPerformed
 
     private void txtAdminAdministradorApellidos8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdminAdministradorApellidos8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAdminAdministradorApellidos8ActionPerformed
 
     private void tablaClientes2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientes2MouseClicked
-        this.txtAdminAdministradorNombre9.setText((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0));
+        this.txtTrabClienteDni.setText((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 0));
         this.txtAdminAdministradorApellidos8.setText((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 1));
         this.txtAdminAdministradorNombre8.setText((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 2));
         this.txtAdminAdministradorDireccion4.setText((String) this.tablaClientes2.getValueAt(tablaClientes2.getSelectedRow(), 3));
@@ -4076,7 +4076,7 @@ try{
 
     private void buttonAction28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction28ActionPerformed
         String fecha = new SimpleDateFormat("yyyy-MM-dd").format(this.fecha1.getDate());
-        f.modificarCliente(txtAdminAdministradorNombre9.getText(), txtAdminAdministradorApellidos8.getText(), txtAdminAdministradorNombre8.getText(), fecha, txtAdminAdministradorDireccion4.getText(), Integer.parseInt(txtAdminAdministradorCodPostal4.getText()), txtAdminAdministradorApellidos7.getText(), Integer.parseInt(txtAdminAdministradorTelefono4.getText()), txtAdminAdministradorCorreo4.getText());
+        f.modificarCliente(txtTrabClienteDni.getText(), txtAdminAdministradorApellidos8.getText(), txtAdminAdministradorNombre8.getText(), fecha, txtAdminAdministradorDireccion4.getText(), Integer.parseInt(txtAdminAdministradorCodPostal4.getText()), txtAdminAdministradorApellidos7.getText(), Integer.parseInt(txtAdminAdministradorTelefono4.getText()), txtAdminAdministradorCorreo4.getText());
         this.tablaClientes2.setModel(f.listarClientes());
     }//GEN-LAST:event_buttonAction28ActionPerformed
 
@@ -4181,12 +4181,22 @@ try{
     private void buttonAction20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction20ActionPerformed
         //Modificamos la tarifa del cliente
         if(JOptionPane.showConfirmDialog(null, "¿Seguro de modificar la Tarifa?") == 0){
-            
-            if(f.modificarTarifa(txtAdminClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
-                JOptionPane.showMessageDialog(null, "Tarifa modificada");
+            //Si estamos en el panel trabajador usaremos el metodo recogiendo del txt del panel trbajador si no recogeremos del panel administrador
+            if(lblTipoTrabajador.getText().equals("Trabajador")){
+                //Metodo para modificar tarifa
+                if(f.modificarTarifa(txtTrabClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
+                    JOptionPane.showMessageDialog(null, "Tarifa modificada");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error al modificar la tarifa");
+                }
             }else{
-                JOptionPane.showMessageDialog(null, "Error al modificar la tarifa");
-            }            
+                if(f.modificarTarifa(txtAdminClienteDni.getText(), (DefaultListModel) listMiTarifa.getModel())){
+                    JOptionPane.showMessageDialog(null, "Tarifa modificada");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error al modificar la tarifa");
+                }
+            }
+                        
         }
     }//GEN-LAST:event_buttonAction20ActionPerformed
 
@@ -4407,7 +4417,6 @@ try{
     private org.edisoncor.gui.label.LabelMetric labelMetric81;
     private org.edisoncor.gui.label.LabelMetric labelMetric83;
     private org.edisoncor.gui.label.LabelMetric labelMetric84;
-    private org.edisoncor.gui.label.LabelMetric labelMetric87;
     private org.edisoncor.gui.label.LabelMetric labelMetric88;
     private org.edisoncor.gui.label.LabelMetric labelMetric89;
     private org.edisoncor.gui.label.LabelMetric labelMetric9;
@@ -4427,6 +4436,7 @@ try{
     private org.edisoncor.gui.label.LabelMetric lblAdministrador;
     private javax.swing.JLabel lblHoraAdmin;
     private javax.swing.JLabel lblHoraTrabajador;
+    private org.edisoncor.gui.label.LabelMetric lblTipoTrabajador;
     private org.edisoncor.gui.label.LabelMetric lblTrabTotalMatricula;
     private org.edisoncor.gui.label.LabelMetric lblTrabajador;
     private javax.swing.JList<String> listClasesNo;
@@ -4477,7 +4487,6 @@ try{
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre16;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre17;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre8;
-    private org.edisoncor.gui.textField.TextField txtAdminAdministradorNombre9;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorTelefono;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorTelefono4;
     private org.edisoncor.gui.textField.TextField txtAdminAdministradorTelefono6;
@@ -4507,6 +4516,7 @@ try{
     private org.edisoncor.gui.textField.TextField txtMonitorDni;
     private org.edisoncor.gui.textField.TextField txtMonitorNombre;
     private org.edisoncor.gui.textField.TextField txtMonitorTelefono;
+    private org.edisoncor.gui.textField.TextField txtTrabClienteDni;
     private org.edisoncor.gui.textField.TextField txtTrabMatriculaApellidos;
     private org.edisoncor.gui.textField.TextField txtTrabMatriculaCP;
     private org.edisoncor.gui.textField.TextField txtTrabMatriculaCiudad;
